@@ -45,3 +45,9 @@
 | [QA-1](QA-1.md) | Сквозные тесты и приёмка MVP | QA / фуллстак | Этап 3 (MVP) | [#32](https://github.com/mrkiro52/kiro-v2/issues/32) |
 | [SEC-5](SEC-5.md) | Проверка безопасности реализации MVP | Специалист ИБ | Этап 3 (MVP) | [#33](https://github.com/mrkiro52/kiro-v2/issues/33) |
 | [DEV-19](DEV-19.md) | Перенос пользователей и постов из v1 | Бэкендер / системный аналитик | Этап 3 (MVP) | [#34](https://github.com/mrkiro52/kiro-v2/issues/34) |
+
+## ML/AI
+
+| ID | Задача | Исполнитель | Issue |
+|---|---|---|---|
+| [ML-0](ML-0.md) | Изучить платформу v1 и подготовить идеи | ML-разработчик | [#35](https://github.com/mrkiro52/kiro-v2/issues/35) |
