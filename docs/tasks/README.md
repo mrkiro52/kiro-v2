@@ -1,53 +1,69 @@
-# Подробные описания задач спринта 1
+# Задачи по командам
 
-Каждый файл — полное ТЗ на задачу; то же самое лежит в теле issue в GitHub.
+Задачи распределены между четырьмя командами: бизнес-аналитика, бэкенд, ИБ, ML. Системного аналитика в проекте нет: его задачи забрали бизнес-аналитики (документация, глоссарий) и бэкенд (границы сервисов, схемы БД, OpenAPI).
 
-| ID | Задача | Исполнитель | Волна | Issue |
-|---|---|---|---|---|
-| [SA-1](SA-1.md) | Структура документации и шаблоны | Системный аналитик | 1 | [#1](https://github.com/mrkiro52/kiro-v2/issues/1) |
-| [BA-1](BA-1.md) | Процессы регистрации и входа | Бизнес-аналитик | 1 | [#2](https://github.com/mrkiro52/kiro-v2/issues/2) |
-| [BA-2](BA-2.md) | Процессы соцсети и модерация | Бизнес-аналитик | 1 | [#3](https://github.com/mrkiro52/kiro-v2/issues/3) |
-| [BA-3](BA-3.md) | Требования к профилю | Бизнес-аналитик | 1 | [#4](https://github.com/mrkiro52/kiro-v2/issues/4) |
-| [DEV-1](DEV-1.md) | Стек и шаблон сервиса (ADR) | Бэкендер / архитектор | 1 | [#5](https://github.com/mrkiro52/kiro-v2/issues/5) |
-| [DEV-2](DEV-2.md) | Монорепозиторий и локальное окружение | Бэкендер / DevOps | 1 | [#6](https://github.com/mrkiro52/kiro-v2/issues/6) |
-| [SEC-4](SEC-4.md) | Проверки безопасности в CI | Специалист ИБ | 1 | [#7](https://github.com/mrkiro52/kiro-v2/issues/7) |
-| [BA-4](BA-4.md) | Пользовательские истории MVP | Бизнес-аналитик | 2 | [#8](https://github.com/mrkiro52/kiro-v2/issues/8) |
-| [SA-2](SA-2.md) | Глоссарий и доменная модель | Системный аналитик | 2 | [#9](https://github.com/mrkiro52/kiro-v2/issues/9) |
-| [SA-3](SA-3.md) | Границы сервисов Auth / Users / Social и события | Системный аналитик | 2 | [#10](https://github.com/mrkiro52/kiro-v2/issues/10) |
-| [SEC-1](SEC-1.md) | Threat model | Специалист ИБ | 2 | [#11](https://github.com/mrkiro52/kiro-v2/issues/11) |
-| [DEV-3](DEV-3.md) | CI | Бэкендер / DevOps | 2 | [#12](https://github.com/mrkiro52/kiro-v2/issues/12) |
-| [SA-4](SA-4.md) | Схемы БД | Системный аналитик | 3 | [#13](https://github.com/mrkiro52/kiro-v2/issues/13) |
-| [SEC-2](SEC-2.md) | Требования к Auth | Специалист ИБ | 3 | [#14](https://github.com/mrkiro52/kiro-v2/issues/14) |
-| [SEC-3](SEC-3.md) | Требования к контенту и файлам | Специалист ИБ | 3 | [#15](https://github.com/mrkiro52/kiro-v2/issues/15) |
-| [DEV-4](DEV-4.md) | Макеты в Figma | Фуллстак / дизайнер | 3 | [#16](https://github.com/mrkiro52/kiro-v2/issues/16) |
-| [SA-5](SA-5.md) | OpenAPI-контракты | Системный аналитик | 4 | [#17](https://github.com/mrkiro52/kiro-v2/issues/17) |
-| [DEV-5](DEV-5.md) | Прототип сервиса Auth | Бэкендер | 5 | [#18](https://github.com/mrkiro52/kiro-v2/issues/18) |
+**Правило:** «Старт» показывает только зависимости внутри своей команды. Результаты других команд перечислены в задаче в разделе «Параллельные входы (не блокируют)»: их не ждут, а сверяются, когда они появятся. Единственное исключение — SEC-5 (проверка уже написанного кода), это поздняя задача ИБ.
 
-## Реализация MVP (этапы 2–3)
+Метка `start-now` в GitHub — задачи, которые можно брать прямо сейчас.
 
-Задачи, которые нужны, чтобы после спринта 1 появились рабочие регистрация, вход, профили, посты, комментарии, ответы и лайки.
+## Бизнес-аналитика
 
-| ID | Задача | Исполнитель | Этап | Issue |
-|---|---|---|---|---|
-| [DEV-6](DEV-6.md) | Gateway: маршрутизация и проверка токена | Бэкендер / DevOps | Этап 2 (Фундамент) | [#19](https://github.com/mrkiro52/kiro-v2/issues/19) |
-| [DEV-7](DEV-7.md) | Брокер событий и библиотека публикации/подписки | Бэкендер | Этап 2 (Фундамент) | [#20](https://github.com/mrkiro52/kiro-v2/issues/20) |
-| [DEV-8](DEV-8.md) | Auth: полный контракт (выход, refresh, восстановление, блокировки) | Бэкендер | Этап 2 (Фундамент) | [#21](https://github.com/mrkiro52/kiro-v2/issues/21) |
-| [DEV-9](DEV-9.md) | Users: сервис профилей и приватности | Бэкендер | Этап 3 (MVP) | [#22](https://github.com/mrkiro52/kiro-v2/issues/22) |
-| [DEV-10](DEV-10.md) | Аватары: загрузка и хранение в S3 | Бэкендер | Этап 3 (MVP) | [#23](https://github.com/mrkiro52/kiro-v2/issues/23) |
-| [DEV-11](DEV-11.md) | Social: посты, комментарии, ответы на комментарии | Бэкендер | Этап 3 (MVP) | [#24](https://github.com/mrkiro52/kiro-v2/issues/24) |
-| [DEV-12](DEV-12.md) | Social: лайки и жалобы | Бэкендер | Этап 3 (MVP) | [#25](https://github.com/mrkiro52/kiro-v2/issues/25) |
-| [DEV-13](DEV-13.md) | Social: лента и посты пользователя | Бэкендер | Этап 3 (MVP) | [#26](https://github.com/mrkiro52/kiro-v2/issues/26) |
-| [DEV-14](DEV-14.md) | Фронтенд: регистрация, вход, восстановление | Фуллстак | Этап 3 (MVP) | [#27](https://github.com/mrkiro52/kiro-v2/issues/27) |
-| [DEV-15](DEV-15.md) | Фронтенд: профиль пользователя и страница чужого профиля | Фуллстак | Этап 3 (MVP) | [#28](https://github.com/mrkiro52/kiro-v2/issues/28) |
-| [DEV-16](DEV-16.md) | Фронтенд: лента, посты, комментарии, ответы, лайки | Фуллстак | Этап 3 (MVP) | [#29](https://github.com/mrkiro52/kiro-v2/issues/29) |
-| [DEV-17](DEV-17.md) | Админка: модерация жалоб и контента | Фуллстак | Этап 3 (MVP) | [#30](https://github.com/mrkiro52/kiro-v2/issues/30) |
-| [DEV-18](DEV-18.md) | Staging: деплой, CD, мониторинг и логи | DevOps / бэкендер | Этап 2 (Фундамент) | [#31](https://github.com/mrkiro52/kiro-v2/issues/31) |
-| [QA-1](QA-1.md) | Сквозные тесты и приёмка MVP | QA / фуллстак | Этап 3 (MVP) | [#32](https://github.com/mrkiro52/kiro-v2/issues/32) |
-| [SEC-5](SEC-5.md) | Проверка безопасности реализации MVP | Специалист ИБ | Этап 3 (MVP) | [#33](https://github.com/mrkiro52/kiro-v2/issues/33) |
-| [DEV-19](DEV-19.md) | Перенос пользователей и постов из v1 | Бэкендер / системный аналитик | Этап 3 (MVP) | [#34](https://github.com/mrkiro52/kiro-v2/issues/34) |
-
-## ML/AI
-
-| ID | Задача | Исполнитель | Issue |
+| ID | Задача | Старт | Issue |
 |---|---|---|---|
-| [ML-0](ML-0.md) | Изучить платформу v1 и подготовить идеи | ML-разработчик | [#35](https://github.com/mrkiro52/kiro-v2/issues/35) |
+| [BA-1](BA-1.md) | Процессы регистрации и входа | **сразу** | [#2](https://github.com/mrkiro52/kiro-v2/issues/2) |
+| [BA-2](BA-2.md) | Процессы соцсети и модерация | **сразу** | [#3](https://github.com/mrkiro52/kiro-v2/issues/3) |
+| [BA-3](BA-3.md) | Требования к профилю | **сразу** | [#4](https://github.com/mrkiro52/kiro-v2/issues/4) |
+| [BA-5](BA-5.md) | Структура документации и шаблоны | **сразу** | [#1](https://github.com/mrkiro52/kiro-v2/issues/1) |
+| [BA-6](BA-6.md) | Глоссарий и доменная модель | **сразу** | [#9](https://github.com/mrkiro52/kiro-v2/issues/9) |
+| [BA-4](BA-4.md) | Пользовательские истории MVP | после BA-1, BA-2, BA-3 | [#8](https://github.com/mrkiro52/kiro-v2/issues/8) |
+
+## Бэкенд (бэкендеры и фуллстаки)
+
+| ID | Задача | Старт | Issue |
+|---|---|---|---|
+| [DEV-1](DEV-1.md) | Стек и шаблон сервиса (ADR) | **сразу** | [#5](https://github.com/mrkiro52/kiro-v2/issues/5) |
+| [DEV-2](DEV-2.md) | Монорепозиторий и локальное окружение | **сразу** | [#6](https://github.com/mrkiro52/kiro-v2/issues/6) |
+| [DEV-4](DEV-4.md) | Макеты в Figma | **сразу** | [#16](https://github.com/mrkiro52/kiro-v2/issues/16) |
+| [DEV-20](DEV-20.md) | Границы сервисов Auth / Users / Social и события | **сразу** | [#10](https://github.com/mrkiro52/kiro-v2/issues/10) |
+| [DEV-3](DEV-3.md) | CI | после DEV-2 | [#12](https://github.com/mrkiro52/kiro-v2/issues/12) |
+| [DEV-7](DEV-7.md) | Брокер событий и библиотека публикации/подписки | после DEV-1, DEV-2, DEV-20 | [#20](https://github.com/mrkiro52/kiro-v2/issues/20) |
+| [DEV-21](DEV-21.md) | Схемы БД | после DEV-20 | [#13](https://github.com/mrkiro52/kiro-v2/issues/13) |
+| [DEV-18](DEV-18.md) | Staging: деплой, CD, мониторинг и логи | после DEV-3, DEV-2 | [#31](https://github.com/mrkiro52/kiro-v2/issues/31) |
+| [DEV-22](DEV-22.md) | OpenAPI-контракты | после DEV-21, DEV-1 | [#17](https://github.com/mrkiro52/kiro-v2/issues/17) |
+| [DEV-5](DEV-5.md) | Прототип сервиса Auth | после DEV-22, DEV-1, DEV-3 | [#18](https://github.com/mrkiro52/kiro-v2/issues/18) |
+| [DEV-6](DEV-6.md) | Gateway: маршрутизация и проверка токена | после DEV-3, DEV-5, DEV-22 | [#19](https://github.com/mrkiro52/kiro-v2/issues/19) |
+| [DEV-8](DEV-8.md) | Auth: полный контракт (выход, refresh, восстановление, блокировки) | после DEV-5, DEV-7, DEV-6 | [#21](https://github.com/mrkiro52/kiro-v2/issues/21) |
+| [DEV-9](DEV-9.md) | Users: сервис профилей и приватности | после DEV-5, DEV-6, DEV-7, DEV-22 | [#22](https://github.com/mrkiro52/kiro-v2/issues/22) |
+| [DEV-10](DEV-10.md) | Аватары: загрузка и хранение в S3 | после DEV-9 | [#23](https://github.com/mrkiro52/kiro-v2/issues/23) |
+| [DEV-11](DEV-11.md) | Social: посты, комментарии, ответы на комментарии | после DEV-5, DEV-6, DEV-7, DEV-9 | [#24](https://github.com/mrkiro52/kiro-v2/issues/24) |
+| [DEV-14](DEV-14.md) | Фронтенд: регистрация, вход, восстановление | после DEV-4, DEV-6, DEV-8 | [#27](https://github.com/mrkiro52/kiro-v2/issues/27) |
+| [DEV-12](DEV-12.md) | Social: лайки и жалобы | после DEV-11 | [#25](https://github.com/mrkiro52/kiro-v2/issues/25) |
+| [DEV-15](DEV-15.md) | Фронтенд: профиль пользователя и страница чужого профиля | после DEV-14, DEV-9, DEV-10 | [#28](https://github.com/mrkiro52/kiro-v2/issues/28) |
+| [DEV-19](DEV-19.md) | Перенос пользователей и постов из v1 | после DEV-21, DEV-9, DEV-11 | [#34](https://github.com/mrkiro52/kiro-v2/issues/34) |
+| [DEV-13](DEV-13.md) | Social: лента и посты пользователя | после DEV-11, DEV-12 | [#26](https://github.com/mrkiro52/kiro-v2/issues/26) |
+| [DEV-17](DEV-17.md) | Админка: модерация жалоб и контента | после DEV-12, DEV-6, DEV-14 | [#30](https://github.com/mrkiro52/kiro-v2/issues/30) |
+| [DEV-16](DEV-16.md) | Фронтенд: лента, посты, комментарии, ответы, лайки | после DEV-14, DEV-13 | [#29](https://github.com/mrkiro52/kiro-v2/issues/29) |
+| [QA-1](QA-1.md) | Сквозные тесты и приёмка MVP | после DEV-16, DEV-17, DEV-18 | [#32](https://github.com/mrkiro52/kiro-v2/issues/32) |
+
+## ИБ
+
+| ID | Задача | Старт | Issue |
+|---|---|---|---|
+| [SEC-1](SEC-1.md) | Threat model | **сразу** | [#11](https://github.com/mrkiro52/kiro-v2/issues/11) |
+| [SEC-2](SEC-2.md) | Требования к Auth | **сразу** | [#14](https://github.com/mrkiro52/kiro-v2/issues/14) |
+| [SEC-3](SEC-3.md) | Требования к контенту и файлам | **сразу** | [#15](https://github.com/mrkiro52/kiro-v2/issues/15) |
+| [SEC-4](SEC-4.md) | Проверки безопасности в CI | **сразу** | [#7](https://github.com/mrkiro52/kiro-v2/issues/7) |
+| [SEC-6](SEC-6.md) | Безопасная настройка доступов, секретов и серверов | **сразу** | [#36](https://github.com/mrkiro52/kiro-v2/issues/36) |
+| [SEC-5](SEC-5.md) | Проверка безопасности реализации MVP | после SEC-1, DEV-8, DEV-10, DEV-13 | [#33](https://github.com/mrkiro52/kiro-v2/issues/33) |
+
+## ML
+
+| ID | Задача | Старт | Issue |
+|---|---|---|---|
+| [ML-0](ML-0.md) | Изучить платформу v1 и подготовить идеи, куда встроить ML | **сразу** | [#35](https://github.com/mrkiro52/kiro-v2/issues/35) |
+| [ML-1](ML-1.md) | Интервью с кураторами и студентами о болях | **сразу** | [#37](https://github.com/mrkiro52/kiro-v2/issues/37) |
+| [ML-3](ML-3.md) | Правила работы с данными и внешними LLM | **сразу** | [#39](https://github.com/mrkiro52/kiro-v2/issues/39) |
+| [ML-5](ML-5.md) | Прототип автомодерации постов и комментариев | **сразу** | [#41](https://github.com/mrkiro52/kiro-v2/issues/41) |
+| [ML-6](ML-6.md) | Трекинг-план и аналитические события MVP | **сразу** | [#42](https://github.com/mrkiro52/kiro-v2/issues/42) |
+| [ML-2](ML-2.md) | Приоритизация идей по RICE и выбор топ-3 | после ML-0, ML-1 | [#38](https://github.com/mrkiro52/kiro-v2/issues/38) |
+| [ML-4](ML-4.md) | Прототипы топ-3 идей | после ML-2, ML-3 | [#40](https://github.com/mrkiro52/kiro-v2/issues/40) |

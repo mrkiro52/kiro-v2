@@ -9,6 +9,7 @@
 | Iteration | 2 недели |
 | Priority | P0, P1, P2 |
 | Estimate | story points / дни |
+| Role | BA, Backend, Security, ML |
 | Service | Gateway, Auth, Users, Content, Learning, Code Runner, Community, Careers, Notifications, Analytics, AI, Infra, Docs |
 
 Правила:
@@ -18,7 +19,9 @@
 - Черновики (draft) — только для идей; в работу берутся только issues.
 
 ## Префиксы задач
-`BA-n` бизнес-аналитика · `SA-n` системная аналитика · `SEC-n` ИБ · `DEV-n` разработка · `ML-n` ML/AI.
+`BA-n` бизнес-аналитика · `DEV-n` бэкенд и фронтенд · `QA-n` тестирование (бэкенд) · `SEC-n` ИБ · `ML-n` ML/AI.
+
+Поле **Role** в проекте: BA, Backend, Security, ML. Метка `start-now` — задачи, которые можно брать сразу.
 
 ## Чек-лист «перед стартом» (этап 0)
 - [ ] GitHub-организация
