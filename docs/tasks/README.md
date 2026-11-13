@@ -60,10 +60,4 @@
 
 | ID | Задача | Старт | Issue |
 |---|---|---|---|
-| [ML-0](ML-0.md) | Изучить платформу v1 и подготовить идеи, куда встроить ML | **сразу** | [#35](https://github.com/mrkiro52/kiro-v2/issues/35) |
-| [ML-1](ML-1.md) | Интервью с кураторами и студентами о болях | **сразу** | [#37](https://github.com/mrkiro52/kiro-v2/issues/37) |
-| [ML-3](ML-3.md) | Правила работы с данными и внешними LLM | **сразу** | [#39](https://github.com/mrkiro52/kiro-v2/issues/39) |
-| [ML-5](ML-5.md) | Прототип автомодерации постов и комментариев | **сразу** | [#41](https://github.com/mrkiro52/kiro-v2/issues/41) |
-| [ML-6](ML-6.md) | Трекинг-план и аналитические события MVP | **сразу** | [#42](https://github.com/mrkiro52/kiro-v2/issues/42) |
-| [ML-2](ML-2.md) | Приоритизация идей по RICE и выбор топ-3 | после ML-0, ML-1 | [#38](https://github.com/mrkiro52/kiro-v2/issues/38) |
-| [ML-4](ML-4.md) | Прототипы топ-3 идей | после ML-2, ML-3 | [#40](https://github.com/mrkiro52/kiro-v2/issues/40) |
+| [ML-0](ML-0.md) | Идеи внедрения ML в текущую платформу | **сразу** | [#35](https://github.com/mrkiro52/kiro-v2/issues/35) |
