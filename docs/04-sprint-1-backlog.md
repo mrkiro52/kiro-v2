@@ -15,7 +15,7 @@
 |---|---|---|
 | Бизнес-аналитика | BA-1, BA-2, BA-3, BA-5, BA-6 | BA-4 |
 | Бэкенд (бэкендеры и фуллстаки) | DEV-1, DEV-2, DEV-4, DEV-20 | DEV-3, DEV-7, DEV-21, DEV-18, DEV-22, DEV-5, DEV-6, DEV-8, DEV-9, DEV-10, DEV-11, DEV-14, DEV-12, DEV-15, DEV-19, DEV-13, DEV-17, DEV-16, QA-1 |
-| ИБ | SEC-1, SEC-2, SEC-3, SEC-4, SEC-6 | SEC-5 |
+| ИБ | SEC-0, SEC-1, SEC-2, SEC-3, SEC-4, SEC-6, SEC-7, SEC-8 | SEC-9, SEC-10, SEC-11, SEC-5, SEC-12, SEC-13 |
 | ML | ML-0 (идеи ML для регистрации и соцсети) | — |
 
 Полные описания и таблицы по командам: [tasks/README.md](tasks/README.md).

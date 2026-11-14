@@ -47,13 +47,23 @@
 
 ## ИБ
 
+Процесс безопасной разработки: [docs/security/ssdlc.md](../security/ssdlc.md) (SEC-0).
+
 | ID | Задача | Старт | Issue |
 |---|---|---|---|
+| [SEC-0](SEC-0.md) | Организация SSDLC KIRO v2 | **сразу** | [#43](https://github.com/mrkiro52/kiro-v2/issues/43) |
+| [SEC-7](SEC-7.md) | Проверить open-source сканеры на работоспособность | **сразу** | [#44](https://github.com/mrkiro52/kiro-v2/issues/44) |
+| [SEC-8](SEC-8.md) | Созвон по SSDLC с ответственными ролями | **сразу** | [#45](https://github.com/mrkiro52/kiro-v2/issues/45) |
 | [SEC-1](SEC-1.md) | Threat model | **сразу** | [#11](https://github.com/mrkiro52/kiro-v2/issues/11) |
 | [SEC-2](SEC-2.md) | Требования к Auth | **сразу** | [#14](https://github.com/mrkiro52/kiro-v2/issues/14) |
 | [SEC-3](SEC-3.md) | Требования к контенту и файлам | **сразу** | [#15](https://github.com/mrkiro52/kiro-v2/issues/15) |
 | [SEC-4](SEC-4.md) | Проверки безопасности в CI | **сразу** | [#7](https://github.com/mrkiro52/kiro-v2/issues/7) |
 | [SEC-6](SEC-6.md) | Безопасная настройка доступов, секретов и серверов | **сразу** | [#36](https://github.com/mrkiro52/kiro-v2/issues/36) |
+| [SEC-10](SEC-10.md) | ASOC: единый учёт находок (DefectDojo) | после SEC-7 | [#46](https://github.com/mrkiro52/kiro-v2/issues/46) |
+| [SEC-11](SEC-11.md) | OSA и SBOM: лицензии и состав компонентов | после SEC-7 | [#47](https://github.com/mrkiro52/kiro-v2/issues/47) |
+| [SEC-9](SEC-9.md) | DAST: автоматическая проверка API и веба на staging | после SEC-7 | [#48](https://github.com/mrkiro52/kiro-v2/issues/48) |
+| [SEC-12](SEC-12.md) | Безопасный выпуск в production и допуск релиза | после SEC-0 | [#49](https://github.com/mrkiro52/kiro-v2/issues/49) |
+| [SEC-13](SEC-13.md) | Обработка уязвимостей и инцидентов | после SEC-0 | [#50](https://github.com/mrkiro52/kiro-v2/issues/50) |
 | [SEC-5](SEC-5.md) | Проверка безопасности реализации MVP | после SEC-1, DEV-8, DEV-10, DEV-13 | [#33](https://github.com/mrkiro52/kiro-v2/issues/33) |
 
 ## ML
