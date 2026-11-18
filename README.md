@@ -39,3 +39,65 @@ KIRO Platform — образовательная платформа IT-лаге�
 - В PR автоматически запускаются проверки: анализ кода, поиск секретов, проверка зависимостей и образов.
 - Подтверждённые уязвимости High и Critical блокируют выпуск, пока их не исправят или не оформят исключение.
 - У найденных уязвимостей есть сроки исправления; исключения согласуются с ИБ и продакт-владельцем.
+
+
+## Как поднять окружение с нуля
+
+Поднимаются PostgreSQL, Redis, RabbitMQ и Traefik (заглушка Gateway). Первый запуск занимает около 10 минут, в основном это скачивание образов.
+
+**Нужно установить:** [Git](https://git-scm.com/), [Docker Desktop](https://www.docker.com/products/docker-desktop/) (запущенный) и `make`. На Windows команды выполняются в Git Bash; если `make` не найден, установи его через `winget` или `choco` или используй команды из блока «Без make».
+
+**1. Клонируй репозиторий и запусти окружение**
+
+```bash
+git clone https://github.com/mrkiro52/kiro-v2.git
+cd kiro-v2
+make up
+```
+
+`make up` сам создаст файл `.env` из `.env.example`. Для локальной работы значения по умолчанию подходят. Файл `.env` не коммитится.
+
+**2. Проверь, что всё поднялось**
+
+```bash
+make ps
+```
+
+У `db`, `redis` и `broker` должен быть статус `healthy` (сразу после запуска может быть `starting`, подожди до 30 секунд).
+
+| Сервис | Адрес | Логин / пароль |
+| --- | --- | --- |
+| PostgreSQL | `localhost:5432` | `kiro` / `change_me`, база `kiro` |
+| Redis | `localhost:6379` | без пароля |
+| RabbitMQ | http://localhost:15672 | `kiro` / `change_me` |
+| Traefik | http://localhost:8080 | без пароля |
+
+**3. Останови окружение**
+
+```bash
+make down
+```
+
+Данные баз сохраняются. Остальные команды: `make logs` (логи, выход `Ctrl+C`) и `make ps` (статус).
+
+<details>
+<summary>Без make</summary>
+
+```bash
+cp .env.example .env
+docker compose --env-file .env -f infra/docker-compose.yml up -d
+docker compose --env-file .env -f infra/docker-compose.yml down
+```
+
+Полный сброс вместе с данными баз: добавь `-v` к `down`.
+
+</details>
+
+**Если что-то не работает**
+
+| Ошибка | Что делать |
+| --- | --- |
+| `Cannot connect to the Docker daemon` | Запусти Docker Desktop |
+| `port is already allocated` | Порт занят: останови программу или поменяй порт слева в `infra/docker-compose.yml` |
+| `missing separator` | В `Makefile` команды должны начинаться с Tab, а не с пробелов |
+| Контейнер `unhealthy` или `Exited` | Посмотри `make logs`, причина обычно в последних строках |

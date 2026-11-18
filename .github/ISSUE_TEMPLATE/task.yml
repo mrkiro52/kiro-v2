@@ -1,0 +1,59 @@
+name: Задача
+description: Рабочая задача для любой команды
+title: "[ID]: "
+labels: ["task"]
+body:
+  - type: dropdown
+    id: team
+    attributes:
+      label: Команда
+      options:
+        - Бэкенд
+        - Бизнес-аналитика
+        - ИБ
+        - ML
+        - Другая
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Зачем
+      description: Какую проблему решает задача и для кого.
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: Что нужно сделать
+      description: Список шагов или ожидаемый результат.
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Критерии готовности
+      description: По чему поймём, что задача выполнена.
+      placeholder: |
+        - [ ] 
+    validations:
+      required: true
+
+  - type: textarea
+    id: deps
+    attributes:
+      label: Зависимости
+      description: От каких задач зависит эта и что она блокирует. Если нет, напиши «нет».
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Связанные материалы
+      description: Документы, макеты, обсуждения, ссылки на код.
+    validations:
+      required: false
