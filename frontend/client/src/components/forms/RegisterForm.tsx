@@ -3,29 +3,44 @@ import type RegisterFormValues from "../../types/auth/RegisterForm"
 import Input from "../UI/Input"
 
 const RegisterForm = () => {
-    const { register, handleSubmit } = useForm<RegisterFormValues>()
+    const { register, handleSubmit, formState } = useForm<RegisterFormValues>()
 
     const onRegister = (data: RegisterFormValues) => {
         console.log(data)
     }
 
+    const loginError = formState.errors['login']?.message
+    const emailError = formState.errors['email']?.message
+    const codeError = formState.errors['code']?.message
+    const passwordError = formState.errors['password']?.message
+    const confirmPasswordError = formState.errors['confirmPassword']?.message
+
+
+
+
     return (
-        <form className="w-full" onSubmit={handleSubmit(onRegister)}>
+        <form className="w-full" onSubmit={handleSubmit(onRegister)} noValidate>
             <div className="space-y-5">
                 <Input
                     label="login"
                     placeholder="Придумай логин"
                     type="text"
-                    register={register}
-                    required
+                    register={register} 
+                    required='Введи свой логин'                   
                 />
+                {loginError && <p className="form-error">{loginError}</p>}
                 <div className="grid items-end gap-3 sm:grid-cols-[minmax(0,1fr)_9.75rem]">
                     <Input
                         label="email"
                         placeholder="Введи свою почту"
                         type="email"
                         register={register}
-                        required
+                        required='Введи свою почту'
+                        pattern={{
+                            value: /\S+@\S+\.\S+/,
+                            message: 'Введенный email неккоректный'
+                        }
+                        }
                     />
                     <button
                         type="button"
@@ -37,6 +52,7 @@ const RegisterForm = () => {
                         Получить код
                     </button>
                 </div>
+                {emailError && <p className="form-error">{emailError}</p>}
                 <div>
                     <Input
                         label="code"
@@ -44,8 +60,13 @@ const RegisterForm = () => {
                         type="text"
                         inputMode="numeric"
                         register={register}
-                        required
+                        required='Введи присланный код'
+                        pattern={{
+                            value: /^\d{6}$/,
+                            message: 'Введеный код должен состоять только из 6 цифр'
+                        }}
                     />
+                    {codeError && <p className="form-error">{codeError}</p>}
                     <p className="mt-2 text-[12px]/4.5 text-text-tertiary">
                         Сначала получи код на указанную почту.
                     </p>
@@ -55,15 +76,17 @@ const RegisterForm = () => {
                     placeholder="••••••••"
                     type="password"
                     register={register}
-                    required
+                    required='Введи свой пароль'
                 />
+                {passwordError && <p className="form-error">{passwordError}</p>}
                 <Input
                     label="confirmPassword"
                     placeholder="••••••••"
                     type="password"
                     register={register}
-                    required
+                    required='Введи еще раз свой пароль'
                 />
+                {confirmPasswordError && <p className="form-error">{confirmPasswordError}</p>}
             </div>
 
             <button

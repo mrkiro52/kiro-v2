@@ -14,5 +14,9 @@ export type InputProps<T extends FieldValues> = {
     type: string
     inputMode?: React.HtmlHTMLAttributes<HTMLInputElement>['inputMode']
     register: UseFormRegister<T>
-    required: boolean
+    required: boolean | string
+    pattern?: {
+        value: RegExp,
+        message: string
+    }
 }

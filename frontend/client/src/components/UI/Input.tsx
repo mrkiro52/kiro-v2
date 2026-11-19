@@ -5,7 +5,7 @@ import {
 import { type InputProps } from "../../types/InputProps"
 
 
-const Input = <T extends FieldValues,>({label, placeholder, type, inputMode, register, required}: InputProps<T>) => {
+const Input = <T extends FieldValues,>({label, placeholder, type, inputMode, register, required, pattern}: InputProps<T>) => {
     return(
       <>
         <div>
@@ -17,7 +17,7 @@ const Input = <T extends FieldValues,>({label, placeholder, type, inputMode, reg
             placeholder={placeholder}
             type={type}
             inputMode={inputMode}
-            {...register(label, {required})}
+            {...register(label, {required, pattern})}
         />
         </div>
         </>

@@ -18,26 +18,26 @@ const AuthLayout = () => {
                         <h1 className="max-w-100 font-display text-[40px] font-bold leading-[1.32] tracking-[-0.03em] max-lg:text-[34px] max-md:text-[32px]">
                             Твой следующий шаг в IT.
                         </h1>
-                        <p className="mt-7 max-w-57.5 text-[15px] leading-7 text-[#c2c2be]">
+                        <p className="mt-7 max-w-57.5 text-[15px] leading-7 text-text-secondary">
                             От первого «как это работает» до уверенного «я умею».
                         </p>
 
                         <ul className="mt-4 max-w-75">
-                            <li className="flex gap-8 border-t border-[#26262e] py-5">
+                            <li className="flex gap-8 border-t border-border-color py-5">
                                 <span className="w-4 shrink-0 font-mono text-[12px] text-text-tertiary">01</span>
                                 <div>
                                     <h2 className="text-[14px] font-semibold">Лагеря</h2>
                                     <p className="mt-1 text-[13px] leading-5 text-text-tertiary">Учись вместе с командой</p>
                                 </div>
                             </li>
-                            <li className="flex gap-8 border-t border-[#26262e] py-5">
+                            <li className="flex gap-8 border-t border-border-color py-5">
                                 <span className="w-4 shrink-0 font-mono text-[12px] text-text-tertiary">02</span>
                                 <div>
                                     <h2 className="text-[14px] font-semibold">Ликбезы</h2>
                                     <p className="mt-1 text-[13px] leading-5 text-text-tertiary">Разбирай сложное по шагам</p>
                                 </div>
                             </li>
-                            <li className="flex gap-8 border-t border-[#26262e] py-5">
+                            <li className="flex gap-8 border-t border-border-color py-5">
                                 <span className="w-4 shrink-0 font-mono text-[12px] text-text-tertiary">03</span>
                                 <div>
                                     <h2 className="text-[14px] font-semibold">Тренажёры</h2>
