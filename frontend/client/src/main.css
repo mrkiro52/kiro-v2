@@ -31,4 +31,57 @@ body {
     .form-error {
         @apply mt-2 w-fit rounded-radius-sm bg-danger-dim px-2 py-1 font-sans text-xs/4 font-semibold text-danger;
     }
+
+    .sidebar-nav {
+        margin-top: 40px;
+    }
+
+    .sidebar-nav-list {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+    }
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: var(--radius-radius-sm);
+        background-color: transparent;
+        color: var(--color-text-secondary);
+        font: 500 13px/20px var(--font-sans);
+        text-align: left;
+    }
+
+    .nav-item:hover {
+        background-color: var(--color-bg-tertiary);
+        color: var(--color-text-primary);
+    }
+
+    .nav-item[aria-current="page"]:not([href="/"]) {
+        background-color: color-mix(in srgb, var(--color-accent-lime) 10%, transparent);
+        color: var(--color-accent-lime);
+        font-weight: 600;
+    }
+
+    .nav-item:focus-visible {
+        outline: 2px solid var(--color-accent-lime);
+        outline-offset: 2px;
+    }
+
+    @media (width < 48rem) {
+        .sidebar-nav {
+            margin-top: 0;
+        }
+
+        .nav-item {
+            display: block;
+            overflow: hidden;
+            padding-inline: 4px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
 }
