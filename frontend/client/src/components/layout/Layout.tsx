@@ -1,7 +1,9 @@
-import { Outlet } from "@tanstack/react-router"
-import {Link}  from "@tanstack/react-router"
+import { Link, Outlet } from "@tanstack/react-router"
+
 
 const Layout = () => {
+
+
     return (
         <div className="flex min-h-screen w-full">
             <aside className="w-65 shrink-0 border-r border-border-color bg-bg-secondary p-4.5 font-sans max-md:w-14 max-md:px-2">
@@ -16,8 +18,8 @@ const Layout = () => {
                 </header>
                 <nav className="sidebar-nav">
                     <ul className="sidebar-nav-list">
-                        <Link to="/home" className="nav-item">Дэшборд</Link>
-                        <Link to="/" className="nav-item">Сообщения</Link>
+                        <Link to="/dashboard" className="nav-item">Дэшборд</Link>
+                        <Link to="/messages" className="nav-item">Сообщения</Link>
                         <Link to="/" className="nav-item">Тренировки</Link>
                         <Link to="/" className="nav-item">Полные ликбезы</Link>
                         <Link to="/" className="nav-item">Календарь</Link>
@@ -25,8 +27,36 @@ const Layout = () => {
                 </nav>
             </aside>
 
-            <main className="min-w-0 flex-1">
-                <Outlet />
+            <main className="min-w-0 flex-1 font-sans text-sm/5.5 text-text-primary">
+                <header className="flex min-h-16 items-center justify-between gap-4 bg-bg-secondary px-4 py-3 md:px-8">
+                    <p className="text-xs/4 text-text-tertiary">
+                        Платформа
+                    </p>
+                    <div className="flex items-center gap-4 text-text-secondary">
+                        <p className="hidden text-xs/4 text-text-tertiary sm:block">
+                            Учись в своём темпе
+                        </p>
+                        {/* TODO: Подключить открытие уведомлений. */}
+                        <button type="button" aria-label="Уведомления" disabled>
+                            <svg
+                                aria-hidden="true"
+                                className="size-5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                                <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8a6 6 0 0 0-12 0c0 4.499-1.411 5.956-2.738 7.326" />
+                            </svg>
+                        </button>
+                    </div>
+                </header>
+                <div className="px-4 py-7 md:px-8">
+                    <Outlet />
+                </div>
             </main>
         </div>
     )
