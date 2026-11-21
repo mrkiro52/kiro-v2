@@ -1,4 +1,4 @@
-import StatCard from "../components/UI/DashboardCard"
+import Card from "../components/UI/Card"
 
 const Dashboard = () => {
     return (
@@ -44,17 +44,17 @@ const Dashboard = () => {
 
                 {/* TODO: Подставить статистику задач, уроков и дней практики из моков. */}
                 <dl aria-label="Учебная статистика" className="grid gap-4 md:grid-cols-3">
-                    <StatCard
+                    <Card
                         label="SQL-тренажёр"
                         value="4 / 90"
                         description="Решено 4% · осталось 86 задач"
                     />
-                    <StatCard
+                    <Card
                         label="Ликбезы"
                         value="4 / 12"
                         description="Пройдено в курсе «SQL с нуля»"
                     />
-                    <StatCard
+                    <Card
                         label="Учебная неделя"
                         value="3 дня"
                         description="С практикой на этой неделе"

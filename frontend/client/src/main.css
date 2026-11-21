@@ -139,4 +139,91 @@ body {
             white-space: nowrap;
         }
     }
+
+    .calendar-layout {
+        @apply grid max-w-279 items-start gap-4 md:grid-cols-[minmax(0,1fr)_minmax(240px,28%)];
+    }
+
+    .calendar-sidebar {
+        @apply grid min-w-0 gap-4;
+    }
+
+    .kiro-calendar {
+        @apply w-full max-w-196.5 p-2 sm:p-4.5;
+    }
+
+    .kiro-calendar .react-calendar__navigation {
+        @apply mb-4 flex flex-wrap items-center gap-1;
+    }
+
+    .kiro-calendar .react-calendar__navigation button {
+        @apply min-h-9 min-w-7 rounded-radius-sm px-1 text-text-secondary sm:min-w-9;
+    }
+
+    .kiro-calendar .react-calendar__navigation .react-calendar__navigation__label {
+        @apply mr-2 pl-0 text-left font-display text-sm font-bold text-text-primary first-letter:uppercase sm:text-[20px];
+        /* Keep the navigation grouped beside the month label. */
+        flex-grow: 0 !important;
+        order: -1;
+    }
+
+    .kiro-calendar .react-calendar__month-view__weekdays,
+    .kiro-calendar .react-calendar__month-view__days {
+        /* react-calendar sets these rows to flex inline. */
+        display: grid !important;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 14px 6px;
+    }
+
+    .kiro-calendar .react-calendar__month-view__weekdays {
+        @apply mb-4 px-0 text-[11px]/[14px] font-bold uppercase text-text-tertiary;
+    }
+
+    .kiro-calendar .react-calendar__month-view__weekdays__weekday {
+        @apply overflow-hidden px-1 sm:px-2;
+    }
+
+    .kiro-calendar .react-calendar__month-view__weekdays abbr {
+        @apply no-underline;
+    }
+
+    .kiro-calendar .react-calendar__tile {
+        @apply min-w-0 rounded-radius-sm border border-transparent bg-bg-tertiary p-1 text-xs text-text-primary sm:p-2;
+    }
+
+    .kiro-calendar .react-calendar__month-view__days__day {
+        @apply flex min-h-11 items-start text-left font-mono tabular-nums sm:min-h-18.75;
+    }
+
+    .kiro-calendar .react-calendar__month-view__days__day--neighboringMonth {
+        @apply bg-bg-primary text-text-tertiary;
+    }
+
+    .kiro-calendar .react-calendar__tile--now {
+        @apply text-math-blue;
+    }
+
+    .kiro-calendar .react-calendar__tile--active {
+        @apply border-math-blue text-text-primary;
+    }
+
+    .kiro-calendar button:enabled:hover {
+        @apply cursor-pointer border-accent-lime text-accent-lime;
+    }
+
+    .kiro-calendar button:focus-visible {
+        @apply outline-2 outline-offset-2 outline-accent-lime;
+    }
+
+    .kiro-calendar button:disabled {
+        @apply opacity-50;
+    }
+
+    .calendar-day {
+        @apply min-w-0 p-4.5;
+    }
+
+    .calendar-day h2 {
+        @apply font-display text-sm/[18px] font-bold text-text-primary first-letter:uppercase;
+    }
 }

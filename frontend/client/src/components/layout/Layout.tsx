@@ -22,7 +22,7 @@ const Layout = () => {
                         <Link to="/messages" className="nav-item">Сообщения</Link>
                         <Link to="/" className="nav-item">Тренировки</Link>
                         <Link to="/" className="nav-item">Полные ликбезы</Link>
-                        <Link to="/" className="nav-item">Календарь</Link>
+                        <Link to="/calendar" className="nav-item">Календарь</Link>
                     </ul>
                 </nav>
             </aside>

@@ -15,6 +15,7 @@
     "@tanstack/react-router": "^1.170.46",
     "@tanstack/react-router-devtools": "^1.167.3",
     "react": "^19.3.1",
+    "react-calendar": "^6.0.1",
     "react-dom": "^19.3.1",
     "react-hook-form": "^7.92.0",
     "tailwindcss": "^4.3.5"
