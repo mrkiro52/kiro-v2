@@ -97,6 +97,22 @@ body {
         gap: 4px;
     }
 
+    .sidebar-account {
+        @apply mt-4 grid min-h-10 w-full cursor-pointer place-items-center rounded-radius-sm border border-transparent bg-bg-tertiary text-left text-text-primary hover:border-accent-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime motion-safe:transition-colors motion-safe:duration-150 md:place-items-start md:px-3.5 md:py-3.5;
+    }
+
+    .sidebar-account-icon {
+        @apply size-4.5 md:hidden;
+    }
+
+    .sidebar-account-text {
+        @apply grid gap-0.5 text-[13px]/5 font-semibold max-md:sr-only;
+    }
+
+    #sidebar-account-role {
+        @apply text-[11px]/4 font-normal text-text-tertiary;
+    }
+
     .nav-item {
         display: flex;
         align-items: center;

@@ -6,7 +6,7 @@ const Layout = () => {
 
     return (
         <div className="flex min-h-screen w-full">
-            <aside className="w-65 shrink-0 border-r border-border-color bg-bg-secondary p-4.5 font-sans max-md:w-14 max-md:px-2">
+            <aside className="w-65 shrink-0 flex flex-col border-r border-border-color bg-bg-secondary p-4.5 font-sans max-md:w-14 max-md:px-2">
                 <header className="max-md:sr-only">
                     <p className="font-display text-[22px]/[22px] font-extrabold tracking-[0.04em] text-accent-lime">
                         KIRO<br />
@@ -16,15 +16,29 @@ const Layout = () => {
                         Твой следующий шаг в IT
                     </p>
                 </header>
-                <nav className="sidebar-nav">
-                    <ul className="sidebar-nav-list">
-                        <Link to="/dashboard" className="nav-item">Дэшборд</Link>
-                        <Link to="/messages" className="nav-item">Сообщения</Link>
-                        <Link to="/" className="nav-item">Тренировки</Link>
-                        <Link to="/" className="nav-item">Полные ликбезы</Link>
-                        <Link to="/calendar" className="nav-item">Календарь</Link>
-                    </ul>
-                </nav>
+                <div className="flex flex-col flex-1 justify-between">
+                    <nav className="sidebar-nav">
+                        <ul className="sidebar-nav-list">
+                            <Link to="/dashboard" className="nav-item">Дэшборд</Link>
+                            <Link to="/messages" className="nav-item">Сообщения</Link>
+                            <Link to="/" className="nav-item">Тренировки</Link>
+                            <Link to="/" className="nav-item">Полные ликбезы</Link>
+                            <Link to="/calendar" className="nav-item">Календарь</Link>
+                        </ul>
+                    </nav>
+
+                    <button
+                        className="sidebar-account"
+                        type="button"
+                        aria-labelledby="sidebar-account-label"
+                        aria-describedby="sidebar-account-role"
+                    >
+                        <span className="sidebar-account-text">
+                            <span id="sidebar-account-label">Личный кабинет</span>
+                            <span id="sidebar-account-role">Участник платформы</span>
+                        </span>
+                    </button>
+                </div>
             </aside>
 
             <main className="min-w-0 flex-1 font-sans text-sm/5.5 text-text-primary">
