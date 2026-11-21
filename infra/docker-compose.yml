@@ -1,0 +1,66 @@
+name: kiro-v2
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-kiro}
+      POSTGRES_USER: ${POSTGRES_USER:-kiro}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:-change_me}
+      USERS_DB_PASSWORD: ${USERS_DB_PASSWORD:-change_me}
+      SOCIAL_DB_PASSWORD: ${SOCIAL_DB_PASSWORD:-change_me}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kiro} -d ${POSTGRES_DB:-kiro}"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  broker:
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-kiro}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-change_me}
+    ports:
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  gateway:
+    image: traefik:v3.0
+    command:
+      - "--api.insecure=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:8080:8080"
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
+
+
