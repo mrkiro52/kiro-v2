@@ -7,10 +7,14 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-kiro}
       POSTGRES_USER: ${POSTGRES_USER:-kiro}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD:-change_me}
+      USERS_DB_PASSWORD: ${USERS_DB_PASSWORD:-change_me}
+      SOCIAL_DB_PASSWORD: ${SOCIAL_DB_PASSWORD:-change_me}
     ports:
-      - "5432:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kiro} -d ${POSTGRES_DB:-kiro}"]
       interval: 10s
@@ -20,7 +24,7 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
     volumes:
       - redis_data:/data
     healthcheck:
@@ -35,8 +39,8 @@ services:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:-kiro}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:-change_me}
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     healthcheck:
@@ -51,8 +55,8 @@ services:
       - "--api.insecure=true"
       - "--entrypoints.web.address=:80"
     ports:
-      - "80:80"
-      - "8080:8080"
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:8080:8080"
 
 volumes:
   postgres_data:

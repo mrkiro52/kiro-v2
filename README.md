@@ -72,6 +72,18 @@ make ps
 | RabbitMQ | http://localhost:15672 | `kiro` / `change_me` |
 | Traefik | http://localhost:8080 | без пароля |
 
+
+**Базы данных сервисов** создаются автоматически при первом запуске:
+
+| Сервис | База | Пользователь | Пароль |
+| --- | --- | --- | --- |
+| auth | `auth` | `auth` | `AUTH_DB_PASSWORD` из `.env` |
+| users | `users` | `users` | `USERS_DB_PASSWORD` из `.env` |
+| social | `social` | `social` | `SOCIAL_DB_PASSWORD` из `.env` |
+
+Каждый сервис подключается только к своей базе. Скрипт создания (`infra/postgres/init/`) выполняется только при первом создании тома. Чтобы пересоздать базы, выполни `down -v` (см. «Без make»), затем `make up`: данные будут потеряны.
+
+
 **3. Останови окружение**
 
 ```bash
@@ -98,6 +110,8 @@ docker compose --env-file .env -f infra/docker-compose.yml down
 | Ошибка | Что делать |
 | --- | --- |
 | `Cannot connect to the Docker daemon` | Запусти Docker Desktop |
-| `port is already allocated` | Порт занят: останови программу или поменяй порт слева в `infra/docker-compose.yml` |
+| `port is already allocated` | Порт занят: останови программу или поменяй порт. Для PostgreSQL добавь в свой `.env` строку `POSTGRES_PORT=5433` (подойдёт любой свободный порт) |
 | `missing separator` | В `Makefile` команды должны начинаться с Tab, а не с пробелов |
 | Контейнер `unhealthy` или `Exited` | Посмотри `make logs`, причина обычно в последних строках |
+| Баз `auth`, `users`, `social` нет, в `make logs` ошибки про `\r` или `bad interpreter` | Скрипт `infra/postgres/init/*.sh` сохранён с CRLF: переведи файл в LF (в VS Code переключатель справа внизу), затем `down -v` и `make up` |
+| Баз `auth`, `users`, `social` нет, ошибок нет | Скрипт выполняется только на пустом томе: выполни `down -v`, затем `make up` (данные будут потеряны) |

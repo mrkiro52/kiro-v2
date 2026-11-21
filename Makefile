@@ -8,11 +8,11 @@ COMPOSE = docker compose --env-file .env -f infra/docker-compose.yml
 up: .env
 	$(COMPOSE) up -d
 
-down:
+down: .env
 	$(COMPOSE) down
 
-logs:
+logs: .env
 	$(COMPOSE) logs -f
 
-ps:
+ps: .env
 	$(COMPOSE) ps
