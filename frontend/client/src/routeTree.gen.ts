@@ -17,6 +17,8 @@ import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
 import { Route as AppMessagesRouteImport } from './routes/_app/messages'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
+import { Route as AppGuideGuideIdRouteImport } from './routes/_app/guide/$guideId'
+import { Route as AppGuideGuidesRouteImport } from './routes/_app/guide/guides'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -56,6 +58,16 @@ const AuthRegisterRoute = AuthRegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => AuthRoute,
 } as any)
+const AppGuideGuideIdRoute = AppGuideGuideIdRouteImport.update({
+  id: '/guide/$guideId',
+  path: '/guide/$guideId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppGuideGuidesRoute = AppGuideGuidesRouteImport.update({
+  id: '/guide/guides',
+  path: '/guide/guides',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -64,6 +76,8 @@ export interface FileRoutesByFullPath {
   '/messages': typeof AppMessagesRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/guide/$guideId': typeof AppGuideGuideIdRoute
+  '/guide/guides': typeof AppGuideGuidesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -72,6 +86,8 @@ export interface FileRoutesByTo {
   '/messages': typeof AppMessagesRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/guide/$guideId': typeof AppGuideGuideIdRoute
+  '/guide/guides': typeof AppGuideGuidesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -83,13 +99,30 @@ export interface FileRoutesById {
   '/_app/messages': typeof AppMessagesRoute
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
+  '/_app/guide/$guideId': typeof AppGuideGuideIdRoute
+  '/_app/guide/guides': typeof AppGuideGuidesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/calendar' | '/dashboard' | '/messages' | '/login' | '/register'
+    | '/'
+    | '/calendar'
+    | '/dashboard'
+    | '/messages'
+    | '/login'
+    | '/register'
+    | '/guide/$guideId'
+    | '/guide/guides'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calendar' | '/dashboard' | '/messages' | '/login' | '/register'
+  to:
+    | '/'
+    | '/calendar'
+    | '/dashboard'
+    | '/messages'
+    | '/login'
+    | '/register'
+    | '/guide/$guideId'
+    | '/guide/guides'
   id:
     | '__root__'
     | '/'
@@ -100,6 +133,8 @@ export interface FileRouteTypes {
     | '/_app/messages'
     | '/_auth/login'
     | '/_auth/register'
+    | '/_app/guide/$guideId'
+    | '/_app/guide/guides'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -166,6 +201,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRegisterRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/_app/guide/$guideId': {
+      id: '/_app/guide/$guideId'
+      path: '/guide/$guideId'
+      fullPath: '/guide/$guideId'
+      preLoaderRoute: typeof AppGuideGuideIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/guide/guides': {
+      id: '/_app/guide/guides'
+      path: '/guide/guides'
+      fullPath: '/guide/guides'
+      preLoaderRoute: typeof AppGuideGuidesRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
@@ -173,12 +222,16 @@ interface AppRouteChildren {
   AppCalendarRoute: typeof AppCalendarRoute
   AppDashboardRoute: typeof AppDashboardRoute
   AppMessagesRoute: typeof AppMessagesRoute
+  AppGuideGuideIdRoute: typeof AppGuideGuideIdRoute
+  AppGuideGuidesRoute: typeof AppGuideGuidesRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppCalendarRoute: AppCalendarRoute,
   AppDashboardRoute: AppDashboardRoute,
   AppMessagesRoute: AppMessagesRoute,
+  AppGuideGuideIdRoute: AppGuideGuideIdRoute,
+  AppGuideGuidesRoute: AppGuideGuidesRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)

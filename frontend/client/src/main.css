@@ -18,6 +18,7 @@ body {
     --color-text-tertiary: #8b8b96;
     --color-text-secondary: #c2c2be;
     --color-border-color: #26262e;
+    --color-success: #3fb950;
     --color-danger: #ff5f5f;
     --color-danger-dim: rgba(255, 95, 95, 0.10);
 
@@ -61,20 +62,24 @@ body {
         @apply outline-2 outline-offset-2 outline-accent-lime;
     }
 
-    .dashboard-progress {
+    .dashboard-progress,
+    .learning-progress {
         @apply block h-1.25 w-full appearance-none overflow-hidden rounded-full bg-border-color;
     }
 
-    .dashboard-progress::-webkit-progress-bar {
+    .dashboard-progress::-webkit-progress-bar,
+    .learning-progress::-webkit-progress-bar {
         background-color: var(--color-border-color);
     }
 
-    .dashboard-progress::-webkit-progress-value {
+    .dashboard-progress::-webkit-progress-value,
+    .learning-progress::-webkit-progress-value {
         border-radius: inherit;
         background-color: var(--color-math-blue);
     }
 
-    .dashboard-progress::-moz-progress-bar {
+    .dashboard-progress::-moz-progress-bar,
+    .learning-progress::-moz-progress-bar {
         border-radius: inherit;
         background-color: var(--color-math-blue);
     }
@@ -178,7 +183,6 @@ body {
 
     .kiro-calendar .react-calendar__navigation .react-calendar__navigation__label {
         @apply mr-2 pl-0 text-left font-display text-sm font-bold text-text-primary first-letter:uppercase sm:text-[20px];
-        /* Keep the navigation grouped beside the month label. */
         flex-grow: 0 !important;
         order: -1;
     }
