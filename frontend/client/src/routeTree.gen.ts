@@ -15,6 +15,8 @@ import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as AppCalendarRouteImport } from './routes/_app/calendar'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
 import { Route as AppMessagesRouteImport } from './routes/_app/messages'
+import { Route as AppProfileRouteImport } from './routes/_app/profile'
+import { Route as AppResetpasswordRouteImport } from './routes/_app/resetpassword'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
 import { Route as AppGuideGuideIdRouteImport } from './routes/_app/guide/$guideId'
@@ -48,6 +50,16 @@ const AppMessagesRoute = AppMessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => AppRoute,
 } as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppResetpasswordRoute = AppResetpasswordRouteImport.update({
+  id: '/resetpassword',
+  path: '/resetpassword',
+  getParentRoute: () => AppRoute,
+} as any)
 const AuthLoginRoute = AuthLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -74,6 +86,8 @@ export interface FileRoutesByFullPath {
   '/calendar': typeof AppCalendarRoute
   '/dashboard': typeof AppDashboardRoute
   '/messages': typeof AppMessagesRoute
+  '/profile': typeof AppProfileRoute
+  '/resetpassword': typeof AppResetpasswordRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
   '/guide/$guideId': typeof AppGuideGuideIdRoute
@@ -84,6 +98,8 @@ export interface FileRoutesByTo {
   '/calendar': typeof AppCalendarRoute
   '/dashboard': typeof AppDashboardRoute
   '/messages': typeof AppMessagesRoute
+  '/profile': typeof AppProfileRoute
+  '/resetpassword': typeof AppResetpasswordRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
   '/guide/$guideId': typeof AppGuideGuideIdRoute
@@ -97,6 +113,8 @@ export interface FileRoutesById {
   '/_app/calendar': typeof AppCalendarRoute
   '/_app/dashboard': typeof AppDashboardRoute
   '/_app/messages': typeof AppMessagesRoute
+  '/_app/profile': typeof AppProfileRoute
+  '/_app/resetpassword': typeof AppResetpasswordRoute
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
   '/_app/guide/$guideId': typeof AppGuideGuideIdRoute
@@ -109,6 +127,8 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/dashboard'
     | '/messages'
+    | '/profile'
+    | '/resetpassword'
     | '/login'
     | '/register'
     | '/guide/$guideId'
@@ -119,6 +139,8 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/dashboard'
     | '/messages'
+    | '/profile'
+    | '/resetpassword'
     | '/login'
     | '/register'
     | '/guide/$guideId'
@@ -131,6 +153,8 @@ export interface FileRouteTypes {
     | '/_app/calendar'
     | '/_app/dashboard'
     | '/_app/messages'
+    | '/_app/profile'
+    | '/_app/resetpassword'
     | '/_auth/login'
     | '/_auth/register'
     | '/_app/guide/$guideId'
@@ -187,6 +211,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppMessagesRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/profile': {
+      id: '/_app/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/resetpassword': {
+      id: '/_app/resetpassword'
+      path: '/resetpassword'
+      fullPath: '/resetpassword'
+      preLoaderRoute: typeof AppResetpasswordRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_auth/login': {
       id: '/_auth/login'
       path: '/login'
@@ -222,6 +260,8 @@ interface AppRouteChildren {
   AppCalendarRoute: typeof AppCalendarRoute
   AppDashboardRoute: typeof AppDashboardRoute
   AppMessagesRoute: typeof AppMessagesRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppResetpasswordRoute: typeof AppResetpasswordRoute
   AppGuideGuideIdRoute: typeof AppGuideGuideIdRoute
   AppGuideGuidesRoute: typeof AppGuideGuidesRoute
 }
@@ -230,6 +270,8 @@ const AppRouteChildren: AppRouteChildren = {
   AppCalendarRoute: AppCalendarRoute,
   AppDashboardRoute: AppDashboardRoute,
   AppMessagesRoute: AppMessagesRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppResetpasswordRoute: AppResetpasswordRoute,
   AppGuideGuideIdRoute: AppGuideGuideIdRoute,
   AppGuideGuidesRoute: AppGuideGuidesRoute,
 }

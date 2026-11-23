@@ -22,6 +22,7 @@ const RegisterForm = () => {
         <form className="w-full" onSubmit={handleSubmit(onRegister)} noValidate>
             <div className="space-y-5">
                 <Input
+                    inputName="Логин"
                     label="login"
                     placeholder="Придумай логин"
                     type="text"
@@ -31,6 +32,7 @@ const RegisterForm = () => {
                 {loginError && <p className="form-error">{loginError}</p>}
                 <div className="grid items-end gap-3 sm:grid-cols-[minmax(0,1fr)_9.75rem]">
                     <Input
+                    inputName="Почта"
                         label="email"
                         placeholder="Введи свою почту"
                         type="email"
@@ -55,6 +57,7 @@ const RegisterForm = () => {
                 {emailError && <p className="form-error">{emailError}</p>}
                 <div>
                     <Input
+                    inputName="Код подтверждения"
                         label="code"
                         placeholder="0 0 0 0 0 0"
                         type="text"
@@ -72,6 +75,7 @@ const RegisterForm = () => {
                     </p>
                 </div>
                 <Input
+                    inputName="Пароль"
                     label="password"
                     placeholder="••••••••"
                     type="password"
@@ -80,6 +84,7 @@ const RegisterForm = () => {
                 />
                 {passwordError && <p className="form-error">{passwordError}</p>}
                 <Input
+                    inputName="Подтвердите пароль"
                     label="confirmPassword"
                     placeholder="••••••••"
                     type="password"
@@ -91,8 +96,8 @@ const RegisterForm = () => {
 
             <button
                 type="submit"
-                className="mt-8 min-h-13 w-full rounded-[13px] bg-accent-lime px-5 text-[15px] font-bold
-                    text-bg-primary transition-colors duration-200 hover:bg-[#ffe873] focus-visible:outline-2
+                className="mt-8 min-h-13 w-full rounded-radius-md bg-accent-lime px-5 text-[15px] font-bold
+                    text-bg-primary transition-colors duration-200 hover:bg-accent-soft focus-visible:outline-2
                     focus-visible:outline-offset-2 focus-visible:outline-accent-lime motion-reduce:transition-none"
             >
                 Зарегистрироваться

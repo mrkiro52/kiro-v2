@@ -9,6 +9,7 @@ import {
 
 
 export type InputProps<T extends FieldValues> = {
+    inputName: string
     label: FieldPath<T>
     placeholder: string
     type: string

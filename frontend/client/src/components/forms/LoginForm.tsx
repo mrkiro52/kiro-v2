@@ -18,6 +18,7 @@ const LoginForm = () => {
             <form onSubmit={handleSubmit(onLogin)}>
                 <div className="space-y-5">
                     <Input
+                    inputName="Логин"
                         label="login"
                         placeholder="Твой логин"
                         type="text"
@@ -26,6 +27,7 @@ const LoginForm = () => {
                     />
                     {loginError && <p className="form-error">{loginError}</p>}
                     <Input
+                    inputName="Пароль"
                         label="password"
                         placeholder="••••••••"
                         type="password"

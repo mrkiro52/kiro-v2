@@ -34,7 +34,7 @@ const Layout = () => {
                         aria-describedby="sidebar-account-role"
                     >
                         <span className="sidebar-account-text">
-                            <span id="sidebar-account-label">Личный кабинет</span>
+                            <Link id="sidebar-account-label" to="/profile">Перейти в личный кабинет</Link>
                             <span id="sidebar-account-role">Участник платформы</span>
                         </span>
                     </button>

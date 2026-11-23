@@ -58,6 +58,11 @@ body {
         @apply bg-accent-soft text-on-accent shadow-hover motion-safe:-translate-y-px;
     }
 
+    .btn-ghost {
+        @apply min-h-0 w-auto cursor-pointer rounded-full border-border-color bg-transparent text-text-secondary;
+        @apply motion-safe:transition-colors motion-safe:duration-150;
+    }
+
     .btn:focus-visible {
         @apply outline-2 outline-offset-2 outline-accent-lime;
     }
