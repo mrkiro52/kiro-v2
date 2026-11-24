@@ -20,6 +20,7 @@ const Layout = () => {
                     <nav className="sidebar-nav">
                         <ul className="sidebar-nav-list">
                             <Link to="/dashboard" className="nav-item">Дэшборд</Link>
+                            <Link to="/feed/feed" className="nav-item">Лента</Link>
                             <Link to="/messages" className="nav-item">Сообщения</Link>
                             <Link to="/" className="nav-item">Тренировки</Link>
                             <Link to="/guide/guides" className="nav-item">Полные ликбезы</Link>

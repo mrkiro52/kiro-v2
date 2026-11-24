@@ -17,8 +17,11 @@ import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
 import { Route as AppMessagesRouteImport } from './routes/_app/messages'
 import { Route as AppProfileRouteImport } from './routes/_app/profile'
 import { Route as AppResetpasswordRouteImport } from './routes/_app/resetpassword'
+import { Route as AuthForgotpasswordRouteImport } from './routes/_auth/forgotpassword'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
+import { Route as AppFeedFeedIdRouteImport } from './routes/_app/feed/$feedId'
+import { Route as AppFeedFeedRouteImport } from './routes/_app/feed/feed'
 import { Route as AppGuideGuideIdRouteImport } from './routes/_app/guide/$guideId'
 import { Route as AppGuideGuidesRouteImport } from './routes/_app/guide/guides'
 
@@ -60,6 +63,11 @@ const AppResetpasswordRoute = AppResetpasswordRouteImport.update({
   path: '/resetpassword',
   getParentRoute: () => AppRoute,
 } as any)
+const AuthForgotpasswordRoute = AuthForgotpasswordRouteImport.update({
+  id: '/forgotpassword',
+  path: '/forgotpassword',
+  getParentRoute: () => AuthRoute,
+} as any)
 const AuthLoginRoute = AuthLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -69,6 +77,16 @@ const AuthRegisterRoute = AuthRegisterRouteImport.update({
   id: '/register',
   path: '/register',
   getParentRoute: () => AuthRoute,
+} as any)
+const AppFeedFeedIdRoute = AppFeedFeedIdRouteImport.update({
+  id: '/feed/$feedId',
+  path: '/feed/$feedId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFeedFeedRoute = AppFeedFeedRouteImport.update({
+  id: '/feed/feed',
+  path: '/feed/feed',
+  getParentRoute: () => AppRoute,
 } as any)
 const AppGuideGuideIdRoute = AppGuideGuideIdRouteImport.update({
   id: '/guide/$guideId',
@@ -88,8 +106,11 @@ export interface FileRoutesByFullPath {
   '/messages': typeof AppMessagesRoute
   '/profile': typeof AppProfileRoute
   '/resetpassword': typeof AppResetpasswordRoute
+  '/forgotpassword': typeof AuthForgotpasswordRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/feed/$feedId': typeof AppFeedFeedIdRoute
+  '/feed/feed': typeof AppFeedFeedRoute
   '/guide/$guideId': typeof AppGuideGuideIdRoute
   '/guide/guides': typeof AppGuideGuidesRoute
 }
@@ -100,8 +121,11 @@ export interface FileRoutesByTo {
   '/messages': typeof AppMessagesRoute
   '/profile': typeof AppProfileRoute
   '/resetpassword': typeof AppResetpasswordRoute
+  '/forgotpassword': typeof AuthForgotpasswordRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/feed/$feedId': typeof AppFeedFeedIdRoute
+  '/feed/feed': typeof AppFeedFeedRoute
   '/guide/$guideId': typeof AppGuideGuideIdRoute
   '/guide/guides': typeof AppGuideGuidesRoute
 }
@@ -115,8 +139,11 @@ export interface FileRoutesById {
   '/_app/messages': typeof AppMessagesRoute
   '/_app/profile': typeof AppProfileRoute
   '/_app/resetpassword': typeof AppResetpasswordRoute
+  '/_auth/forgotpassword': typeof AuthForgotpasswordRoute
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
+  '/_app/feed/$feedId': typeof AppFeedFeedIdRoute
+  '/_app/feed/feed': typeof AppFeedFeedRoute
   '/_app/guide/$guideId': typeof AppGuideGuideIdRoute
   '/_app/guide/guides': typeof AppGuideGuidesRoute
 }
@@ -129,8 +156,11 @@ export interface FileRouteTypes {
     | '/messages'
     | '/profile'
     | '/resetpassword'
+    | '/forgotpassword'
     | '/login'
     | '/register'
+    | '/feed/$feedId'
+    | '/feed/feed'
     | '/guide/$guideId'
     | '/guide/guides'
   fileRoutesByTo: FileRoutesByTo
@@ -141,8 +171,11 @@ export interface FileRouteTypes {
     | '/messages'
     | '/profile'
     | '/resetpassword'
+    | '/forgotpassword'
     | '/login'
     | '/register'
+    | '/feed/$feedId'
+    | '/feed/feed'
     | '/guide/$guideId'
     | '/guide/guides'
   id:
@@ -155,8 +188,11 @@ export interface FileRouteTypes {
     | '/_app/messages'
     | '/_app/profile'
     | '/_app/resetpassword'
+    | '/_auth/forgotpassword'
     | '/_auth/login'
     | '/_auth/register'
+    | '/_app/feed/$feedId'
+    | '/_app/feed/feed'
     | '/_app/guide/$guideId'
     | '/_app/guide/guides'
   fileRoutesById: FileRoutesById
@@ -225,6 +261,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppResetpasswordRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_auth/forgotpassword': {
+      id: '/_auth/forgotpassword'
+      path: '/forgotpassword'
+      fullPath: '/forgotpassword'
+      preLoaderRoute: typeof AuthForgotpasswordRouteImport
+      parentRoute: typeof AuthRoute
+    }
     '/_auth/login': {
       id: '/_auth/login'
       path: '/login'
@@ -238,6 +281,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/register'
       preLoaderRoute: typeof AuthRegisterRouteImport
       parentRoute: typeof AuthRoute
+    }
+    '/_app/feed/$feedId': {
+      id: '/_app/feed/$feedId'
+      path: '/feed/$feedId'
+      fullPath: '/feed/$feedId'
+      preLoaderRoute: typeof AppFeedFeedIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/feed/feed': {
+      id: '/_app/feed/feed'
+      path: '/feed/feed'
+      fullPath: '/feed/feed'
+      preLoaderRoute: typeof AppFeedFeedRouteImport
+      parentRoute: typeof AppRoute
     }
     '/_app/guide/$guideId': {
       id: '/_app/guide/$guideId'
@@ -262,6 +319,8 @@ interface AppRouteChildren {
   AppMessagesRoute: typeof AppMessagesRoute
   AppProfileRoute: typeof AppProfileRoute
   AppResetpasswordRoute: typeof AppResetpasswordRoute
+  AppFeedFeedIdRoute: typeof AppFeedFeedIdRoute
+  AppFeedFeedRoute: typeof AppFeedFeedRoute
   AppGuideGuideIdRoute: typeof AppGuideGuideIdRoute
   AppGuideGuidesRoute: typeof AppGuideGuidesRoute
 }
@@ -272,6 +331,8 @@ const AppRouteChildren: AppRouteChildren = {
   AppMessagesRoute: AppMessagesRoute,
   AppProfileRoute: AppProfileRoute,
   AppResetpasswordRoute: AppResetpasswordRoute,
+  AppFeedFeedIdRoute: AppFeedFeedIdRoute,
+  AppFeedFeedRoute: AppFeedFeedRoute,
   AppGuideGuideIdRoute: AppGuideGuideIdRoute,
   AppGuideGuidesRoute: AppGuideGuidesRoute,
 }
@@ -279,11 +340,13 @@ const AppRouteChildren: AppRouteChildren = {
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
 interface AuthRouteChildren {
+  AuthForgotpasswordRoute: typeof AuthForgotpasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthRegisterRoute: typeof AuthRegisterRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
+  AuthForgotpasswordRoute: AuthForgotpasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthRegisterRoute: AuthRegisterRoute,
 }
