@@ -2,7 +2,6 @@ import { type FeedCardType } from "../../types/FeedCard"
 import { Link } from "@tanstack/react-router"
 
 
-
 const FeedCard = ({
     id,
     author,
@@ -12,6 +11,9 @@ const FeedCard = ({
     likeCount,
     commentCount
 }: FeedCardType) => {
+
+
+
     return (
         <>
             <article className="widget min-w-0 p-4.5 font-sans text-text-primary mb-5">
@@ -28,7 +30,6 @@ const FeedCard = ({
                         <span className="rounded-full bg-bg-tertiary px-2 py-2 text-xs/4 font-semibold text-text-secondary tabular-nums">{likeCount}</span>
                         <span className="rounded-full bg-bg-tertiary px-2 py-2 text-xs/4 font-semibold text-text-secondary tabular-nums">{commentCount}</span>
                         <Link
-                            className="inline-flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime"
                             to="/feed/$feedId"
                             params={{ feedId: String(id) }}
                         >
@@ -36,6 +37,9 @@ const FeedCard = ({
                                 Открыть пост
                             </button>
                         </Link>
+                        <button className="min-h-8 cursor-pointer rounded-full px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">
+                            Оставить комментарий
+                        </button>
                     </div>
                 </footer>
             </article>

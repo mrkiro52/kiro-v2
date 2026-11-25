@@ -11,17 +11,19 @@ const ProfileForm = () => {
                 <div className="grid grid-cols-1 gap-4 [&_label]:mb-1.5 &_label]:tracking-wider [&_label]:text-text-secondary">
                     <Input
                         inputName="Имя"
-                        label="login"
+                        label="name"
                         placeholder="Твое имя"
                         type="text"
+                        value="Ханиль"
                         register={register}
                         required='Введи свой логин'
                     />
                     <Input
                         inputName="Фамилия"
-                        label="login"
+                        label="surname"
                         placeholder="Твоя фамилия"
                         type="text"
+                        value="Киреев"
                         register={register}
                         required='Введи свой логин'
                     />
@@ -30,6 +32,7 @@ const ProfileForm = () => {
                         label="login"
                         placeholder="Придумай логин"
                         type="text"
+                        value="khanil"
                         register={register}
                         required='Введи свой логин'
                     />
@@ -38,6 +41,7 @@ const ProfileForm = () => {
                         label="email"
                         placeholder="Введи свою почту"
                         type="email"
+                        value="khanil@yandex.ru"
                         register={register}
                         required='Введи свою почту'
                         pattern={{

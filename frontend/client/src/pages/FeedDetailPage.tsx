@@ -1,16 +1,42 @@
 import { Route } from "../routes/_app/feed/$feedId"
 import { MockFeed } from "../mock/FeedMock"
+import { MockComments } from "../mock/CommentMock"
+import ReviewItem from "../components/UI/ReviewItem"
+import ReviewForm from "../components/forms/ReviewForm"
+import { useState } from "react"
 
 const FeedDetailPage = () => {
 
+    const [viewForm, setViewForm] = useState(false)
+
     const {feedId} = Route.useParams()
     const feed = MockFeed.find((feed) => String(feed.id) === feedId )
+    const comment = MockComments.filter((comment) => String(comment.feedId) == feedId)
 
     return(
-        <>
-        <p>{feedId}</p>
-        <p>{feed.title}</p>
-        </>
+        <div className="grid w-full max-w-3xl gap-4">
+            <article className="widget min-w-0 p-4.5">
+                <p className="mb-2 font-mono text-xs/4 tabular-nums text-accent-lime before:content-['#']">{feedId}</p>
+                <h1 className="font-display text-[22px]/7 font-bold tracking-[-0.3px] wrap-anywhere sm:text-[28px]/[34px]">{feed.title}</h1>
+                <p className="mt-4 text-[15px]/6 whitespace-pre-line wrap-anywhere text-text-secondary">{feed.description}</p>
+            </article>
+            <section className="widget min-w-0 p-4.5">
+                <h2 className="font-display text-[17px]/[22px] font-bold">Комментарии</h2>
+                <div className="mt-3 divide-y divide-border-color empty:hidden">
+                    {comment.map(comments => (
+                        <ReviewItem
+                            key={comments.id}
+                            author={comments.author}
+                            publishedAt={comments.publishedAt}
+                            text={comments.text}
+                            likeCount={comments.likeCount}
+                        />
+                    ))}
+                </div>
+            <button className="btn btn-primary mt-4 sm:w-fit sm:px-14" onClick={() => setViewForm(!viewForm)}>Оставить комментарий</button>
+            {viewForm && <ReviewForm/>}
+            </section>
+        </div>
     )
 }
 export default FeedDetailPage

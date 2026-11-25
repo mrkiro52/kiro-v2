@@ -21,6 +21,7 @@ import { Route as AuthForgotpasswordRouteImport } from './routes/_auth/forgotpas
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
 import { Route as AppFeedFeedIdRouteImport } from './routes/_app/feed/$feedId'
+import { Route as AppFeedCreateRouteImport } from './routes/_app/feed/create'
 import { Route as AppFeedFeedRouteImport } from './routes/_app/feed/feed'
 import { Route as AppGuideGuideIdRouteImport } from './routes/_app/guide/$guideId'
 import { Route as AppGuideGuidesRouteImport } from './routes/_app/guide/guides'
@@ -83,6 +84,11 @@ const AppFeedFeedIdRoute = AppFeedFeedIdRouteImport.update({
   path: '/feed/$feedId',
   getParentRoute: () => AppRoute,
 } as any)
+const AppFeedCreateRoute = AppFeedCreateRouteImport.update({
+  id: '/feed/create',
+  path: '/feed/create',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppFeedFeedRoute = AppFeedFeedRouteImport.update({
   id: '/feed/feed',
   path: '/feed/feed',
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
   '/feed/$feedId': typeof AppFeedFeedIdRoute
+  '/feed/create': typeof AppFeedCreateRoute
   '/feed/feed': typeof AppFeedFeedRoute
   '/guide/$guideId': typeof AppGuideGuideIdRoute
   '/guide/guides': typeof AppGuideGuidesRoute
@@ -125,6 +132,7 @@ export interface FileRoutesByTo {
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
   '/feed/$feedId': typeof AppFeedFeedIdRoute
+  '/feed/create': typeof AppFeedCreateRoute
   '/feed/feed': typeof AppFeedFeedRoute
   '/guide/$guideId': typeof AppGuideGuideIdRoute
   '/guide/guides': typeof AppGuideGuidesRoute
@@ -143,6 +151,7 @@ export interface FileRoutesById {
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
   '/_app/feed/$feedId': typeof AppFeedFeedIdRoute
+  '/_app/feed/create': typeof AppFeedCreateRoute
   '/_app/feed/feed': typeof AppFeedFeedRoute
   '/_app/guide/$guideId': typeof AppGuideGuideIdRoute
   '/_app/guide/guides': typeof AppGuideGuidesRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/feed/$feedId'
+    | '/feed/create'
     | '/feed/feed'
     | '/guide/$guideId'
     | '/guide/guides'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/feed/$feedId'
+    | '/feed/create'
     | '/feed/feed'
     | '/guide/$guideId'
     | '/guide/guides'
@@ -192,6 +203,7 @@ export interface FileRouteTypes {
     | '/_auth/login'
     | '/_auth/register'
     | '/_app/feed/$feedId'
+    | '/_app/feed/create'
     | '/_app/feed/feed'
     | '/_app/guide/$guideId'
     | '/_app/guide/guides'
@@ -289,6 +301,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppFeedFeedIdRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/feed/create': {
+      id: '/_app/feed/create'
+      path: '/feed/create'
+      fullPath: '/feed/create'
+      preLoaderRoute: typeof AppFeedCreateRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/feed/feed': {
       id: '/_app/feed/feed'
       path: '/feed/feed'
@@ -320,6 +339,7 @@ interface AppRouteChildren {
   AppProfileRoute: typeof AppProfileRoute
   AppResetpasswordRoute: typeof AppResetpasswordRoute
   AppFeedFeedIdRoute: typeof AppFeedFeedIdRoute
+  AppFeedCreateRoute: typeof AppFeedCreateRoute
   AppFeedFeedRoute: typeof AppFeedFeedRoute
   AppGuideGuideIdRoute: typeof AppGuideGuideIdRoute
   AppGuideGuidesRoute: typeof AppGuideGuidesRoute
@@ -332,6 +352,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppProfileRoute: AppProfileRoute,
   AppResetpasswordRoute: AppResetpasswordRoute,
   AppFeedFeedIdRoute: AppFeedFeedIdRoute,
+  AppFeedCreateRoute: AppFeedCreateRoute,
   AppFeedFeedRoute: AppFeedFeedRoute,
   AppGuideGuideIdRoute: AppGuideGuideIdRoute,
   AppGuideGuidesRoute: AppGuideGuidesRoute,

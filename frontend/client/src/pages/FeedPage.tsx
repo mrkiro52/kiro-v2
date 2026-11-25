@@ -35,6 +35,7 @@ const FeedPage = () => {
                 <div className="widget p-4.5">
                     <h1 className="font-display text-sm/[18px] font-bold text-text-primary">О чем писать</h1>
                     <p className="mt-3 text-sm/5.5 text-text-secondary">Поделись находкой с тренировки, задай вопрос по задаче или покажи свой учебный проект.</p>
+                    <Link to="/feed/create" className="mt-4 inline-flex min-h-8 items-center rounded-radius-sm px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">Написать пост</Link>
                 </div>
             </div>
         </div>

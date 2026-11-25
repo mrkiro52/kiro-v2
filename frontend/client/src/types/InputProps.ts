@@ -13,6 +13,7 @@ export type InputProps<T extends FieldValues> = {
     label: FieldPath<T>
     placeholder: string
     type: string
+    value?: string
     inputMode?: React.HtmlHTMLAttributes<HTMLInputElement>['inputMode']
     register: UseFormRegister<T>
     required: boolean | string
