@@ -4,16 +4,38 @@ import { MockComments } from "../mock/CommentMock"
 import ReviewItem from "../components/UI/ReviewItem"
 import ReviewForm from "../components/forms/ReviewForm"
 import { useState } from "react"
+import { type ReviewItemType } from "../types/ReviewItemType"
 
 const FeedDetailPage = () => {
 
     const [viewForm, setViewForm] = useState(false)
 
-    const {feedId} = Route.useParams()
-    const feed = MockFeed.find((feed) => String(feed.id) === feedId )
+    const { feedId } = Route.useParams()
+    const feed = MockFeed.find((feed) => String(feed.id) === feedId)
     const comment = MockComments.filter((comment) => String(comment.feedId) == feedId)
 
-    return(
+
+    if (!feed){
+        return <p className="widget w-full max-w-3xl px-4 py-8 text-center text-sm/5 text-text-secondary">Нету постов</p>
+    }
+
+
+    if (comment.length === 0) {
+        return (
+            <>
+                <article className="widget min-w-0 p-4.5">
+                    <p className="mb-2 font-mono text-xs/4 tabular-nums text-accent-lime before:content-['#']">{feedId}</p>
+                    <h1 className="font-display text-[22px]/7 font-bold tracking-[-0.3px] wrap-anywhere sm:text-[28px]/[34px]">{feed.title}</h1>
+                    <p className="mt-4 text-[15px]/6 whitespace-pre-line wrap-anywhere text-text-secondary">{feed.description}</p>
+                </article>
+                <p className="max-w-3xl px-4 py-8 text-sm/5 text-text-secondary">Нету комментариев</p>
+                <button className="btn btn-primary mt-4 sm:w-fit sm:px-14" onClick={() => setViewForm(!viewForm)}>Оставить комментарий</button>
+                {viewForm && <ReviewForm />}
+            </>
+        )
+    }
+
+    return (
         <div className="grid w-full max-w-3xl gap-4">
             <article className="widget min-w-0 p-4.5">
                 <p className="mb-2 font-mono text-xs/4 tabular-nums text-accent-lime before:content-['#']">{feedId}</p>
@@ -23,7 +45,7 @@ const FeedDetailPage = () => {
             <section className="widget min-w-0 p-4.5">
                 <h2 className="font-display text-[17px]/[22px] font-bold">Комментарии</h2>
                 <div className="mt-3 divide-y divide-border-color empty:hidden">
-                    {comment.map(comments => (
+                    {comment.map((comments : ReviewItemType) => (
                         <ReviewItem
                             key={comments.id}
                             author={comments.author}
@@ -33,8 +55,8 @@ const FeedDetailPage = () => {
                         />
                     ))}
                 </div>
-            <button className="btn btn-primary mt-4 sm:w-fit sm:px-14" onClick={() => setViewForm(!viewForm)}>Оставить комментарий</button>
-            {viewForm && <ReviewForm/>}
+                <button className="btn btn-primary mt-4 sm:w-fit sm:px-14" onClick={() => setViewForm(!viewForm)}>Оставить комментарий</button>
+                {viewForm && <ReviewForm />}
             </section>
         </div>
     )

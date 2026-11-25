@@ -1,8 +1,8 @@
-import { type FeedCard } from "../types/FeedCard"
+import { type FeedCardType } from "../types/FeedCard"
 
 
 
-export const MockFeed: FeedCard[] = [
+export const MockFeed: FeedCardType[] = [
     {
         id: 1,
         author: "Алексей Морозов",

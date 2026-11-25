@@ -1,4 +1,5 @@
 export type MessageListItemProps = {
+    id: number
     sender: string
     date: string
     subject: string

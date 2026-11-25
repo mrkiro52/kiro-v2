@@ -1,4 +1,6 @@
 import Card from "../components/UI/Card"
+import { type DashboardCardProps } from "../types/DashboardCard"
+import { MockDashboardCards } from "../mock/DashboardMock"
 
 const Dashboard = () => {
     return (
@@ -44,21 +46,11 @@ const Dashboard = () => {
 
                 {/* TODO: Подставить статистику задач, уроков и дней практики из моков. */}
                 <dl aria-label="Учебная статистика" className="grid gap-4 md:grid-cols-3">
-                    <Card
-                        label="SQL-тренажёр"
-                        value="4 / 90"
-                        description="Решено 4% · осталось 86 задач"
-                    />
-                    <Card
-                        label="Ликбезы"
-                        value="4 / 12"
-                        description="Пройдено в курсе «SQL с нуля»"
-                    />
-                    <Card
-                        label="Учебная неделя"
-                        value="3 дня"
-                        description="С практикой на этой неделе"
-                    />
+                    {MockDashboardCards.map((dashboardCard:DashboardCardProps) => (
+                        <Card
+                            {...dashboardCard}
+                        />
+                    ))}
                 </dl>
 
                 <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">

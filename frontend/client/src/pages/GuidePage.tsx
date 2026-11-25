@@ -1,5 +1,6 @@
 import GuideCard from "../components/UI/GuideCard"
 import { MockGuide } from "../mock/GuideMock"
+import { type GuideCardProps } from "../types/GuideCard"
 
 
 const GuidePage = () => {
@@ -7,18 +8,9 @@ const GuidePage = () => {
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {MockGuide.map(({id, order, category, title, description, lessonCount, duration, completedLessons, onOpen}) => (
+      {MockGuide.map((guideCard: GuideCardProps) => (
         <GuideCard
-        key={id}
-        id={id}
-        order={order}
-        category={category}
-        title={title}
-        description={description}
-        lessonCount={lessonCount}
-        duration={duration}
-        completedLessons={completedLessons}
-        onOpen={onOpen}
+        {...guideCard}
         />
       ))}
     </div>

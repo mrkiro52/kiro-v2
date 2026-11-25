@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router"
 import FeedCard from "../components/UI/FeedCard"
 import { MockFeed } from "../mock/FeedMock"
+import { type FeedCardType } from "../types/FeedCard"
 
 
 
@@ -8,16 +9,9 @@ const FeedPage = () => {
     return (
         <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(240px,32%)]">
             <div className="min-w-0">
-                {MockFeed.map(({ id, author, publishedAt, title, description, likeCount, commentCount }) => (
+                {MockFeed.map((feedCard : FeedCardType) => (
                     <FeedCard
-                        key={id}
-                        id={id}
-                        author={author}
-                        publishedAt={publishedAt}
-                        title={title}
-                        description={description}
-                        likeCount={likeCount}
-                        commentCount={commentCount}
+                    {...feedCard}
                     />
                 ))}
             </div>

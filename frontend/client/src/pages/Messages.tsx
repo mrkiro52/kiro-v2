@@ -1,4 +1,7 @@
 import MessageListItem from "../components/UI/MessageListItem"
+import { MockMessages } from "../mock/MessageMock"
+import type { MessageListItemProps } from "../types/MessageListItem"
+
 
 const Messages = () => {
     return (
@@ -11,46 +14,11 @@ const Messages = () => {
             <div className="grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,13fr)]">
                 {/* TODO: Брать список из моков, выбирать сообщение по id и отмечать его прочитанным при открытии. */}
                 <ul className="widget flex flex-col gap-1 p-3" aria-label="Список сообщений">
-                    <MessageListItem
-                        sender="Команда KIRO"
-                        date="18 ноя"
-                        subject="Завтра разбор задач"
-                        preview="JOIN без боли · 20:00 МСК"
-                        unread
-                        selected
-                    />
-                    <MessageListItem
-                        sender="Наставник"
-                        date="18 ноя"
-                        subject="Проверь обратную связь"
-                        preview="В задаче №3 нужны правки"
-                        unread
-                    />
-                    <MessageListItem
-                        sender="Платформа"
-                        date="17 ноя"
-                        subject="Дедлайн уже в календаре"
-                        preview="Сдать ДЗ до 20 ноября"
-                        unread
-                    />
-                    <MessageListItem
-                        sender="Наставник"
-                        date="16 ноя"
-                        subject="Решение принято"
-                        preview="Отличная работа с SELECT"
-                    />
-                    <MessageListItem
-                        sender="Команда KIRO"
-                        date="15 ноя"
-                        subject="Материалы встречи"
-                        preview="Запись и полезные ссылки"
-                    />
-                    <MessageListItem
-                        sender="Платформа"
-                        date="12 ноя"
-                        subject="Добро пожаловать в KIRO"
-                        preview="Твой маршрут обучения"
-                    />
+                    {MockMessages.map((message: MessageListItemProps) => (
+                        <MessageListItem
+                            {...message}
+                        />
+                    ))}
                 </ul>
 
                 {/* TODO: Подставить данные выбранного сообщения. Плашку встречи и кнопку выводить при наличии встречи. */}
