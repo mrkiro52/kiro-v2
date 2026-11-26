@@ -14,11 +14,13 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as AppCalendarRouteImport } from './routes/_app/calendar'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
-import { Route as AppProfileRouteImport } from './routes/_app/profile'
+import { Route as AppMessagesRouteImport } from './routes/_app/messages'
 import { Route as AppResetpasswordRouteImport } from './routes/_app/resetpassword'
 import { Route as AuthForgotpasswordRouteImport } from './routes/_auth/forgotpassword'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
+import { Route as ProfileEditprofileRouteImport } from './routes/profile/editprofile'
+import { Route as ProfileProfileRouteImport } from './routes/profile/profile'
 import { Route as AppFeedFeedIdRouteImport } from './routes/_app/feed/$feedId'
 import { Route as AppFeedCreateRouteImport } from './routes/_app/feed/create'
 import { Route as AppFeedFeedRouteImport } from './routes/_app/feed/feed'
@@ -46,9 +48,9 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
-const AppProfileRoute = AppProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+const AppMessagesRoute = AppMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
   getParentRoute: () => AppRoute,
 } as any)
 const AppResetpasswordRoute = AppResetpasswordRouteImport.update({
@@ -71,6 +73,16 @@ const AuthRegisterRoute = AuthRegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => AuthRoute,
 } as any)
+const ProfileEditprofileRoute = ProfileEditprofileRouteImport.update({
+  id: '/profile/editprofile',
+  path: '/profile/editprofile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileProfileRoute = ProfileProfileRouteImport.update({
+  id: '/profile/profile',
+  path: '/profile/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppFeedFeedIdRoute = AppFeedFeedIdRouteImport.update({
   id: '/feed/$feedId',
   path: '/feed/$feedId',
@@ -91,11 +103,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/calendar': typeof AppCalendarRoute
   '/dashboard': typeof AppDashboardRoute
-  '/profile': typeof AppProfileRoute
+  '/messages': typeof AppMessagesRoute
   '/resetpassword': typeof AppResetpasswordRoute
   '/forgotpassword': typeof AuthForgotpasswordRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/profile/editprofile': typeof ProfileEditprofileRoute
+  '/profile/profile': typeof ProfileProfileRoute
   '/feed/$feedId': typeof AppFeedFeedIdRoute
   '/feed/create': typeof AppFeedCreateRoute
   '/feed/feed': typeof AppFeedFeedRoute
@@ -104,11 +118,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/calendar': typeof AppCalendarRoute
   '/dashboard': typeof AppDashboardRoute
-  '/profile': typeof AppProfileRoute
+  '/messages': typeof AppMessagesRoute
   '/resetpassword': typeof AppResetpasswordRoute
   '/forgotpassword': typeof AuthForgotpasswordRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/profile/editprofile': typeof ProfileEditprofileRoute
+  '/profile/profile': typeof ProfileProfileRoute
   '/feed/$feedId': typeof AppFeedFeedIdRoute
   '/feed/create': typeof AppFeedCreateRoute
   '/feed/feed': typeof AppFeedFeedRoute
@@ -120,11 +136,13 @@ export interface FileRoutesById {
   '/_auth': typeof AuthRouteWithChildren
   '/_app/calendar': typeof AppCalendarRoute
   '/_app/dashboard': typeof AppDashboardRoute
-  '/_app/profile': typeof AppProfileRoute
+  '/_app/messages': typeof AppMessagesRoute
   '/_app/resetpassword': typeof AppResetpasswordRoute
   '/_auth/forgotpassword': typeof AuthForgotpasswordRoute
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
+  '/profile/editprofile': typeof ProfileEditprofileRoute
+  '/profile/profile': typeof ProfileProfileRoute
   '/_app/feed/$feedId': typeof AppFeedFeedIdRoute
   '/_app/feed/create': typeof AppFeedCreateRoute
   '/_app/feed/feed': typeof AppFeedFeedRoute
@@ -135,11 +153,13 @@ export interface FileRouteTypes {
     | '/'
     | '/calendar'
     | '/dashboard'
-    | '/profile'
+    | '/messages'
     | '/resetpassword'
     | '/forgotpassword'
     | '/login'
     | '/register'
+    | '/profile/editprofile'
+    | '/profile/profile'
     | '/feed/$feedId'
     | '/feed/create'
     | '/feed/feed'
@@ -148,11 +168,13 @@ export interface FileRouteTypes {
     | '/'
     | '/calendar'
     | '/dashboard'
-    | '/profile'
+    | '/messages'
     | '/resetpassword'
     | '/forgotpassword'
     | '/login'
     | '/register'
+    | '/profile/editprofile'
+    | '/profile/profile'
     | '/feed/$feedId'
     | '/feed/create'
     | '/feed/feed'
@@ -163,11 +185,13 @@ export interface FileRouteTypes {
     | '/_auth'
     | '/_app/calendar'
     | '/_app/dashboard'
-    | '/_app/profile'
+    | '/_app/messages'
     | '/_app/resetpassword'
     | '/_auth/forgotpassword'
     | '/_auth/login'
     | '/_auth/register'
+    | '/profile/editprofile'
+    | '/profile/profile'
     | '/_app/feed/$feedId'
     | '/_app/feed/create'
     | '/_app/feed/feed'
@@ -177,6 +201,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
   AuthRoute: typeof AuthRouteWithChildren
+  ProfileEditprofileRoute: typeof ProfileEditprofileRoute
+  ProfileProfileRoute: typeof ProfileProfileRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -216,11 +242,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/profile': {
-      id: '/_app/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof AppProfileRouteImport
+    '/_app/messages': {
+      id: '/_app/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof AppMessagesRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/resetpassword': {
@@ -251,6 +277,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRegisterRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/profile/editprofile': {
+      id: '/profile/editprofile'
+      path: '/profile/editprofile'
+      fullPath: '/profile/editprofile'
+      preLoaderRoute: typeof ProfileEditprofileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/profile': {
+      id: '/profile/profile'
+      path: '/profile/profile'
+      fullPath: '/profile/profile'
+      preLoaderRoute: typeof ProfileProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app/feed/$feedId': {
       id: '/_app/feed/$feedId'
       path: '/feed/$feedId'
@@ -278,7 +318,7 @@ declare module '@tanstack/react-router' {
 interface AppRouteChildren {
   AppCalendarRoute: typeof AppCalendarRoute
   AppDashboardRoute: typeof AppDashboardRoute
-  AppProfileRoute: typeof AppProfileRoute
+  AppMessagesRoute: typeof AppMessagesRoute
   AppResetpasswordRoute: typeof AppResetpasswordRoute
   AppFeedFeedIdRoute: typeof AppFeedFeedIdRoute
   AppFeedCreateRoute: typeof AppFeedCreateRoute
@@ -288,7 +328,7 @@ interface AppRouteChildren {
 const AppRouteChildren: AppRouteChildren = {
   AppCalendarRoute: AppCalendarRoute,
   AppDashboardRoute: AppDashboardRoute,
-  AppProfileRoute: AppProfileRoute,
+  AppMessagesRoute: AppMessagesRoute,
   AppResetpasswordRoute: AppResetpasswordRoute,
   AppFeedFeedIdRoute: AppFeedFeedIdRoute,
   AppFeedCreateRoute: AppFeedCreateRoute,
@@ -315,6 +355,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
   AuthRoute: AuthRouteWithChildren,
+  ProfileEditprofileRoute: ProfileEditprofileRoute,
+  ProfileProfileRoute: ProfileProfileRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

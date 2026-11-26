@@ -3,7 +3,7 @@ import ProfilePage from '../../pages/ProfilePage'
 
 
 
-export const Route = createFileRoute('/_app/profile')({
+export const Route = createFileRoute('/profile/profile')({
   component: ProfilePage,
 })
 

@@ -1,12 +1,12 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+// import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 
 const RootLayout = () => (
     <>
     <div className="flex gap-2">
         <Outlet/>
-        <TanStackRouterDevtools/>
+        {/* <TanStackRouterDevtools/> */}
     </div>
     </>
 )

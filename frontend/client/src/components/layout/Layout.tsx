@@ -24,17 +24,19 @@ const Layout = () => {
                         </ul>
                     </nav>
 
-                    <button
-                        className="sidebar-account"
-                        type="button"
-                        aria-labelledby="sidebar-account-label"
-                        aria-describedby="sidebar-account-role"
-                    >
-                        <span className="sidebar-account-text">
-                            <Link id="sidebar-account-label" to="/profile">Перейти в личный кабинет</Link>
-                            <span id="sidebar-account-role">Участник платформы</span>
-                        </span>
-                    </button>
+                    <Link to="/profile/profile">
+                        <button
+                            className="sidebar-account"
+                            type="button"
+                            aria-labelledby="sidebar-account-label"
+                            aria-describedby="sidebar-account-role"
+                        >
+                            <span className="sidebar-account-text">
+                                <span id="sidebar-account-label">Перейти в личный кабинет</span>
+                                <span id="sidebar-account-role">Киреев Ханиль</span>
+                            </span>
+                        </button>
+                    </Link>
                 </div>
             </aside>
 
