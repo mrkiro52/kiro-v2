@@ -5,6 +5,7 @@ import ReviewItem from "../components/UI/ReviewItem"
 import ReviewForm from "../components/forms/ReviewForm"
 import { useState } from "react"
 import { type ReviewItemType } from "../types/ReviewItemType"
+import { Link } from "@tanstack/react-router"
 
 const FeedDetailPage = () => {
 
@@ -12,7 +13,7 @@ const FeedDetailPage = () => {
 
     const { feedId } = Route.useParams()
     const feed = MockFeed.find((feed) => String(feed.id) === feedId)
-    const comment = MockComments.filter((comment) => String(comment.feedId) == feedId)
+    const comment = MockComments.filter((comment) => String(comment.feedId) === feedId)
 
 
     if (!feed){
@@ -24,7 +25,9 @@ const FeedDetailPage = () => {
         return (
             <>
                 <article className="widget min-w-0 p-4.5">
-                    <p className="mb-2 font-mono text-xs/4 tabular-nums text-accent-lime before:content-['#']">{feedId}</p>
+                    <Link to="/feed/feed" className="btn btn-ghost mb-3 inline-flex min-h-8 items-center font-sans">
+                        Назад к постам
+                    </Link>
                     <h1 className="font-display text-[22px]/7 font-bold tracking-[-0.3px] wrap-anywhere sm:text-[28px]/[34px]">{feed.title}</h1>
                     <p className="mt-4 text-[15px]/6 whitespace-pre-line wrap-anywhere text-text-secondary">{feed.description}</p>
                 </article>
@@ -38,7 +41,9 @@ const FeedDetailPage = () => {
     return (
         <div className="grid w-full max-w-3xl gap-4">
             <article className="widget min-w-0 p-4.5">
-                <p className="mb-2 font-mono text-xs/4 tabular-nums text-accent-lime before:content-['#']">{feedId}</p>
+                <Link to="/feed/feed" className="btn btn-ghost mb-3 inline-flex min-h-8 items-center font-sans">
+                    Назад к постам
+                </Link>
                 <h1 className="font-display text-[22px]/7 font-bold tracking-[-0.3px] wrap-anywhere sm:text-[28px]/[34px]">{feed.title}</h1>
                 <p className="mt-4 text-[15px]/6 whitespace-pre-line wrap-anywhere text-text-secondary">{feed.description}</p>
             </article>
@@ -48,6 +53,7 @@ const FeedDetailPage = () => {
                     {comment.map((comments : ReviewItemType) => (
                         <ReviewItem
                             key={comments.id}
+                            id={comments.id}
                             author={comments.author}
                             publishedAt={comments.publishedAt}
                             text={comments.text}

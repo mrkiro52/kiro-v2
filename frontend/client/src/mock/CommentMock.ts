@@ -1,4 +1,8 @@
-export const MockComments = [
+import type {ReviewItemType} from "../types/ReviewItemType.ts";
+
+
+
+export const MockComments: ReviewItemType[] = [
     {
         id: 1,
         feedId: 1,

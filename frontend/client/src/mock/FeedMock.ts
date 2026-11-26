@@ -10,7 +10,7 @@ export const MockFeed: FeedCardType[] = [
         title: "Как я наконец понял LEFT JOIN",
         description: "Долго путал, где ставить условия после LEFT JOIN. Помогло представить две таблицы: студенты и сданные задачи. Если перенести проверку статуса из WHERE в ON, в выдаче останутся и студенты без сданных задач.\n\nКому тоже помог конкретный пример?",
         likeCount: 12,
-        commentCount: 3
+        commentCount: 3,
     },
     {
         id: 2,
@@ -19,6 +19,6 @@ export const MockFeed: FeedCardType[] = [
         title: "Мой конспект по оконным функциям",
         description: "Собрала примеры для ROW_NUMBER и RANK. Предлагаю сравнить результаты на данных с одинаковыми значениями.",
         likeCount: 7,
-        commentCount: 0
+        commentCount: 0,
     }
 ]

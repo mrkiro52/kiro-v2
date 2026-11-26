@@ -2,18 +2,31 @@ import { Link } from "@tanstack/react-router"
 import FeedCard from "../components/UI/FeedCard"
 import { MockFeed } from "../mock/FeedMock"
 import { type FeedCardType } from "../types/FeedCard"
+import ReportDialog from "../components/UI/ReportDialog"
+import { useState } from "react"
+
 
 
 
 const FeedPage = () => {
+
+    const [reportPostId, setReportPostId] = useState<number | null>(null)
+
+
     return (
         <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(240px,32%)]">
             <div className="min-w-0">
-                {MockFeed.map((feedCard : FeedCardType) => (
+                {MockFeed.map((feedCard: FeedCardType) => (
                     <FeedCard
-                    {...feedCard}
+                    key={feedCard.id}
+                        {...feedCard}
+                    onReport={setReportPostId}
                     />
                 ))}
+                {reportPostId !== null && <ReportDialog
+                    postId={reportPostId}
+                    onClose={() => setReportPostId(null)}
+                />}
             </div>
             <div className="grid min-w-0 gap-4">
                 <div className="widget p-4.5">

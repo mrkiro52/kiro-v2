@@ -1,8 +1,11 @@
 import { type FeedCardType } from "../../types/FeedCard"
 import { Link } from "@tanstack/react-router"
 
+type FeedCardProps = FeedCardType & {
+    onReport: (postId: number) => void
+}
 
-const FeedCard = (feedCard: FeedCardType) => {
+const FeedCard = (feedCard: FeedCardProps) => {
 
 
 
@@ -18,19 +21,24 @@ const FeedCard = (feedCard: FeedCardType) => {
                     <p className="mt-2 text-sm/5.5 wrap-anywhere whitespace-pre-line text-text-secondary">{feedCard.description}</p>
                 </main>
                 <footer className="mt-3 border-t border-border-color pt-3">
-                    <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-bg-tertiary px-2 py-2 text-xs/4 font-semibold text-text-secondary tabular-nums">{feedCard.likeCount}</span>
-                        <span className="rounded-full bg-bg-tertiary px-2 py-2 text-xs/4 font-semibold text-text-secondary tabular-nums">{feedCard.commentCount}</span>
-                        <Link
-                            to="/feed/$feedId"
-                            params={{ feedId: String(feedCard.id) }}
-                        >
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <span className="rounded-full bg-bg-tertiary px-2 py-2 text-xs/4 font-semibold text-text-secondary tabular-nums">{feedCard.likeCount}</span>
+                            <span className="rounded-full bg-bg-tertiary px-2 py-2 text-xs/4 font-semibold text-text-secondary tabular-nums">{feedCard.commentCount}</span>
+                            <Link
+                                to="/feed/$feedId"
+                                params={{ feedId: String(feedCard.id) }}
+                            >
+                                <button className="min-h-8 cursor-pointer rounded-full px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">
+                                    Открыть пост
+                                </button>
+                            </Link>
                             <button className="min-h-8 cursor-pointer rounded-full px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">
-                                Открыть пост
+                                Оставить комментарий
                             </button>
-                        </Link>
-                        <button className="min-h-8 cursor-pointer rounded-full px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">
-                            Оставить комментарий
+                        </div>
+                        <button onClick={() => feedCard.onReport(feedCard.id)} className="cursor-pointer">
+                            Пожаловаться
                         </button>
                     </div>
                 </footer>
