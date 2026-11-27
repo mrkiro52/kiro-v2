@@ -4,7 +4,6 @@ import { Route } from "../routes/_app/profile/$userId"
 import { MockUsers } from "../mock/UserMock"
 import { MockFeed } from "../mock/FeedMock"
 import FeedCard from "../components/UI/FeedCard"
-import ReportDialog from "../components/UI/ReportDialog"
 
 
 

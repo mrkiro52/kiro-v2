@@ -1,5 +1,8 @@
+import { useState } from "react"
 import { type FeedCardType } from "../../types/FeedCard"
 import { Link } from "@tanstack/react-router"
+import ReviewForm from "../forms/ReviewForm"
+
 
 type FeedCardProps = FeedCardType & {
     onReport: (postId: number) => void
@@ -7,6 +10,8 @@ type FeedCardProps = FeedCardType & {
 
 const FeedCard = (feedCard: FeedCardProps) => {
 
+
+    const [viewForm, setViewForm] = useState(false)
 
 
     return (
@@ -27,6 +32,7 @@ const FeedCard = (feedCard: FeedCardProps) => {
                     <h1 className="font-display text-[17px]/5.5 font-bold wrap-anywhere">{feedCard.title}</h1>
                     <p className="mt-2 text-sm/5.5 wrap-anywhere whitespace-pre-line text-text-secondary">{feedCard.description}</p>
                 </main>
+                {viewForm && <ReviewForm/>}
                 <footer className="mt-3 border-t border-border-color pt-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                         <div>
@@ -40,7 +46,7 @@ const FeedCard = (feedCard: FeedCardProps) => {
                                     Открыть пост
                                 </button>
                             </Link>
-                            <button className="min-h-8 cursor-pointer rounded-full px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">
+                            <button onClick={() => setViewForm(!viewForm)} className="min-h-8 cursor-pointer rounded-full px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime">
                                 Оставить комментарий
                             </button>
                         </div>
