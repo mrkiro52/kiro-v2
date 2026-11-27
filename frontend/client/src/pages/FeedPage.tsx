@@ -33,7 +33,7 @@ const FeedPage = () => {
                     <h1 className="font-display text-sm/[18px] font-bold text-text-primary">Мои посты</h1>
                     <p className="mt-3 text-sm/5.5 text-text-secondary">Здесь можно найти и отредактировать свои публикации.</p>
                     <Link
-                        to="/profile/profile"
+                        to="/profile/me"
                         className="mt-4 inline-flex min-h-8 items-center rounded-radius-sm px-1 text-[15px]/5 font-bold text-accent-lime hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime"
                     >
                         Открыть мои посты

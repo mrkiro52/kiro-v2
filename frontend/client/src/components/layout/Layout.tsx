@@ -24,7 +24,7 @@ const Layout = () => {
                         </ul>
                     </nav>
 
-                    <Link to="/profile/profile">
+                    <Link to="/profile/me">
                         <button
                             className="sidebar-account"
                             type="button"

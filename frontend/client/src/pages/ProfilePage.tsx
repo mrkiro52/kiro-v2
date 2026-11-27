@@ -5,10 +5,11 @@ import { Link } from "@tanstack/react-router"
 const ProfilePage = () => {
     return (
         <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1fr)]">
+            <h1 className="font-display text-[28px]/[34px] font-bold tracking-[-0.3px] lg:col-span-2">
+                Мой профиль
+            </h1>
+
             <div className="grid min-w-0 gap-4">
-                <h1 className="font-display text-[28px]/[34px] font-bold tracking-[-0.3px]">
-                    Мой профиль
-                </h1>
                 <article className="widget p-4.5">
                     <header className="flex flex-wrap items-center justify-between gap-4">
                         <div className="flex min-w-0 items-center gap-4">

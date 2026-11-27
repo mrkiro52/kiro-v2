@@ -14,6 +14,13 @@ const FeedCard = (feedCard: FeedCardProps) => {
             <article className="widget min-w-0 p-4.5 font-sans text-text-primary mb-5">
                 <header className="grid gap-1">
                     <h1 className="text-[13px]/5 font-medium wrap-anywhere">{feedCard.author}</h1>
+                    <Link
+                        to="/profile/$userId"
+                        params={{ userId: String(feedCard.authorId) }}
+                        className="justify-self-start rounded-radius-sm text-xs/4 font-semibold text-accent-lime hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-lime"
+                    >
+                        перейти в профиль
+                    </Link>
                     <span className="font-mono text-[13px]/5 text-text-tertiary">{feedCard.publishedAt}</span>
                 </header>
                 <main className="mt-3">

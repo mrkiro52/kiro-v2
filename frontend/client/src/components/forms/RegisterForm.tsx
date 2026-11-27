@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form"
 import type RegisterFormValues from "../../types/auth/RegisterForm"
 import Input from "../UI/Input"
+import { useNavigate } from "@tanstack/react-router"
 
 const RegisterForm = () => {
     const { register, handleSubmit, formState } = useForm<RegisterFormValues>()
+    const navigate = useNavigate({from:'/register'})
 
     const onRegister = (data: RegisterFormValues) => {
         console.log(data)
+        navigate({to:'/login'})
     }
 
     const loginError = formState.errors['login']?.message

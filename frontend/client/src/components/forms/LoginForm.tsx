@@ -2,12 +2,18 @@ import { useForm } from "react-hook-form"
 import type LoginFormValues from "../../types/auth/LoginFormValues"
 import Input from "../UI/Input"
 import { Link } from "@tanstack/react-router"
+import { useNavigate } from "@tanstack/react-router"
+
 
 const LoginForm = () => {
     const { register, handleSubmit, formState } = useForm<LoginFormValues>()
+    const navigate = useNavigate({from: '/login'})
 
     const onLogin = (data: LoginFormValues) => {
         console.log(data)
+        navigate({
+            to:'/dashboard'
+        })
     }
 
 
